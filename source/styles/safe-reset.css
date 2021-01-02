@@ -1,0 +1,116 @@
+/*
+  This file will be replaced with `tailwindcss/preflight` when Polymer goes away.
+  It is not as safe as the file name suggests but not sure we have much of a choice.
+*/
+
+.safe-reset {
+  @apply antialiased leading-normal text-16px font-primary;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.safe-reset * {
+  @apply min-w-0 p-0 m-0 border-0 border-solid border-grey-8;
+  box-sizing: inherit;
+  font-family: inherit;
+  text-transform: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+
+button {
+  background: transparent;
+  padding: 0;
+}
+
+img {
+  border-style: solid;
+  border-width: 0;
+  display: block;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted currentColor;
+}
+
+/* This CSS is needed to hide the Select dropdown arrows in IE11 */
+select::-ms-expand {
+  display: none;
+}
+
+.safe-reset .link {
+  @apply inline-flex items-center justify-center no-underline cursor-pointer text-primary;
+}
+
+.safe-reset .link:hover,
+.safe-reset .link:focus {
+  @apply text-primary-hover;
+}
+
+/* Hides the clear button which appears in text inputs in IE and older versions of Edge */
+::-ms-clear {
+  display: none;
+}
+
+/* Remove the spinner from number inputs */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
