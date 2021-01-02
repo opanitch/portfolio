@@ -2,11 +2,11 @@ const path = require('path');
 
 const postCSSPlugins = require('./postcss.config');
 
-const dictionaryPath = path.resolve(__dirname, './assets/dictionary/');
+const dictionaryPath = path.resolve(__dirname, '../assets/dictionary/');
 const dictionaryLoader = {
-  loader: 'dictionary-inline-loader',
+  loader: path.resolve('./build/dictionaryLoader/index.js'),
   options: {
-    delimiters: ['{{$ ', ' $}}'],
+    delimiters: ['{{@ ', ' @}}'],
     escape: true,
     pathToDictionary: dictionaryPath,
   },
@@ -29,15 +29,15 @@ module.exports = () => {
       ],
     },
     {
-      test: /\.(js|jsx|tsx)$/,
+      test: /\.(ts|js)x$/,
+      include: dirList.map((file) => path.resolve(__dirname, file)),
+      use: [dictionaryLoader, 'babel-loader'],
+    },
+    {
+      test: /\.(js|ts)x$/,
       exclude: /node_modules/,
       use: ['babel-loader', 'eslint-loader'],
     },
-    // {
-    //   test: /\.(ts|js)x?$/,
-    //   include: dirList.map((file) => path.resolve(__dirname, file)),
-    //   use: [dictionaryLoader, "babel-loader"],
-    // },
     {
       test: /\.(eot|ttf|woff|woff2)$/,
       loader: 'file-loader',

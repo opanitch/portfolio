@@ -6,7 +6,7 @@ import './styles/app.css';
 import HomePage from './pages/Home';
 
 const hardcode = 'React with Webpack and Babel 526';
-const title = '{{@ cms.homepage.title @}}';
+const title = '{{@ cms.home.title @}}';
 
 const App = () => {
   return (
