@@ -6,7 +6,7 @@ const plugins = require('./webpack/plugins');
 
 module.exports = {
   devServer: {
-    contentBase: path.resolve(__dirname, './public'),
+    contentBase: path.resolve(__dirname, './public/'),
     host: '0.0.0.0',
     port: 3000,
     // public: 'http://local.opanitch.com:3000',

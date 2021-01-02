@@ -1,4 +1,5 @@
 /* https://tailwindcss.com */
+const colors = require('tailwindcss/colors');
 
 /*
   A function that returns a Tailwind plugin that will add

@@ -4,14 +4,14 @@
 */
 
 .safe-reset {
-  @apply antialiased leading-normal text-16px font-primary;
+  /* @apply antialiased leading-normal text-16px font-primary; */
   box-sizing: border-box;
   position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .safe-reset * {
-  @apply min-w-0 p-0 m-0 border-0 border-solid border-grey-8;
+  /* @apply min-w-0 p-0 m-0 border-0 border-solid border-grey-8; */
   box-sizing: inherit;
   font-family: inherit;
   text-transform: none;
@@ -95,12 +95,12 @@ select::-ms-expand {
 }
 
 .safe-reset .link {
-  @apply inline-flex items-center justify-center no-underline cursor-pointer text-primary;
+  /* @apply inline-flex items-center justify-center no-underline cursor-pointer text-primary; */
 }
 
 .safe-reset .link:hover,
 .safe-reset .link:focus {
-  @apply text-primary-hover;
+  /* @apply text-primary-hover; */
 }
 
 /* Hides the clear button which appears in text inputs in IE and older versions of Edge */
@@ -109,8 +109,8 @@ select::-ms-expand {
 }
 
 /* Remove the spinner from number inputs */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

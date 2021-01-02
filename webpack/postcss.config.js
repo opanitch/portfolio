@@ -12,25 +12,52 @@ class TailwindExtractor {
   }
 }
 
-module.exports = () => {
-  return [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('postcss-preset-env')({
-      browsers: 'last 2 versions',
-      stage: 0,
-    }),
-    require('@fullhuman/postcss-purgecss')({
-      content: [
-        './source/**/!(*.d,*.spec,*.demo).{js,ts,tsx,jsx}',
-        './public/index.html',
-      ],
-      extractors: [
-        {
-          extractor: TailwindExtractor,
-          extensions: ['html', 'js', '.jsx', 'ts', '.tsx'],
-        },
-      ],
-    }),
-  ];
+module.exports = {
+  plugins: [
+    ['postcss-import'],
+    ['tailwindcss'],
+    [
+      'postcss-preset-env',
+      {
+        browsers: 'last 2 versions',
+        stage: 0,
+      },
+    ],
+    // [
+    //   '@fullhuman/postcss-purgecss',
+    //   {
+    //     content: [
+    //       './source/**/!(*.d,*.spec,*.demo).{js,ts,tsx,jsx}',
+    //       './public/index.html',
+    //     ],
+    //     extractors: [
+    //       {
+    //         extractor: new TailwindExtractor(),
+    //         extensions: ['html', 'js', '.jsx', 'ts', '.tsx'],
+    //       },
+    //     ],
+    //   },
+    // ],
+  ],
 };
+
+// plugins: [
+//   require('postcss-import'),
+//   require('tailwindcss'),
+//   require('postcss-preset-env')({
+//     browsers: 'last 2 versions',
+//     stage: 0,
+//   }),
+//   require('@fullhuman/postcss-purgecss')({
+//     content: [
+//       './source/**/!(*.d,*.spec,*.demo).{js,ts,tsx,jsx}',
+//       './public/index.html',
+//     ],
+//     extractors: [
+//       {
+//         extractor: TailwindExtractor,
+//         extensions: ['html', 'js', '.jsx', 'ts', '.tsx'],
+//       },
+//     ],
+//   }),
+// ]
