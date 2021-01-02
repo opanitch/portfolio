@@ -31,7 +31,7 @@ const pxToRem = (px, base = 16) => `${px / base}rem`;
 
 module.exports = {
   purge: {
-    enabled: true,
+    // enabled: true,
     content: [
       './public/**/*.html',
       './source/**/*.html',

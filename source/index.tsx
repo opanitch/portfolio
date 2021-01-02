@@ -5,18 +5,14 @@ import './styles/app.css';
 
 import HomePage from './pages/Home';
 
-import { Header } from './components';
-
-const hardcode = 'React with Webpack and Babel 526';
-const title = '{{@ cms.home.title @}}';
+import { Footer, Header } from './components';
 
 const App = () => {
   return (
-    <div className="w-100 mb-1">
+    <div className="mb-1 w-100">
       <Header />
-      <p>{hardcode}</p>
-      <p>{title}</p>
       <HomePage />
+      <Footer />
     </div>
   );
 };
