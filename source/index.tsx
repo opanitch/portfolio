@@ -5,12 +5,14 @@ import './styles/app.css';
 
 import HomePage from './pages/Home';
 
-const title = 'React with Webpack and Babel 5';
+const hardcode = 'React with Webpack and Babel 526';
+const title = '{{@ cms.homepage.title @}}';
 
 const App = () => {
   return (
     <div className="w-100 mb-1">
-      {title}
+      <p>{hardcode}</p>
+      <p>{title}</p>
       <HomePage />
     </div>
   );

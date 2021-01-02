@@ -30,6 +30,16 @@ const addUtilitiesFromConfig = (name, classPrefix = `${name}-`) => ({
 const pxToRem = (px, base = 16) => `${px / base}rem`;
 
 module.exports = {
+  purge: {
+    enabled: true,
+    content: [
+      './public/**/*.html',
+      './source/**/*.html',
+      './source/**/*.jsx',
+      './source/**/*.tsx',
+    ],
+  },
+
   theme: {
     branding: {
       white: '#ffffff',
@@ -410,5 +420,6 @@ module.exports = {
 
   corePlugins: {
     container: false,
+    float: false,
   },
 };
