@@ -1,8 +1,23 @@
 {
+  "contact": {
+    "title": "Contact title"
+  },
   "home": {
-    "title": "Hello World"
+    "title": "Home title"
+  },
+  "portfolio": {
+    "title": "Portfolio title"
+  },
+  "resume": {
+    "title": "Resume title"
   },
   "site": {
-    "title": "Oren Panitch"
+    "navigation": {
+      "contact": "Contact",
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "resume": "Resume"
+    },
+    "title": "Site title"
   }
 }
