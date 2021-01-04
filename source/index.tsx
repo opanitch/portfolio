@@ -5,16 +5,16 @@ import './styles/app.css';
 
 import HomePage from './pages/Home';
 
-import { Footer, Header } from './components';
+import { SiteFooter, SiteHeader } from './components';
 
-const App = () => {
-  return (
-    <div className="mb-1 w-100">
-      <Header />
+const renderAnchor = document.getElementById('portfolio');
+
+renderAnchor &&
+  ReactDOM.render(
+    <div>
+      <SiteHeader />
       <HomePage />
-      <Footer />
-    </div>
+      <SiteFooter />
+    </div>,
+    renderAnchor
   );
-};
-
-ReactDOM.render(<App />, document.getElementById('portfolio'));

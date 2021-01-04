@@ -1,2 +1,3 @@
-export { default as Footer } from './Footer/Footer';
-export { default as Header } from './Header/Header';
+// export { default as PageContainer } from './PageContainer/PageContainer';
+export { default as SiteFooter } from './SiteFooter/SiteFooter';
+export { default as SiteHeader } from './SiteHeader/SiteHeader';
