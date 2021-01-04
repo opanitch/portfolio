@@ -29,12 +29,12 @@ module.exports = () => {
       ],
     },
     {
-      test: /\.(ts|js)x$/,
+      test: /\.(ts|js)x?$/,
       include: dirList.map((file) => path.resolve(__dirname, file)),
-      use: [dictionaryLoader, 'babel-loader'],
+      use: [dictionaryLoader],
     },
     {
-      test: /\.(js|ts)x$/,
+      test: /\.(js|ts)x?$/,
       exclude: /node_modules/,
       use: ['babel-loader', 'eslint-loader'],
     },

@@ -76,6 +76,15 @@ module.exports = {
     // These are spread into width, height, min-width, min-height, min-height, max-height
     // Try to avoid adding numbers here and use an inline style if it's a one off number...
     commonLengths: {
+      0: '0',
+      50: '50px',
+      75: '75px',
+      100: '100px',
+      480: '480px',
+      768: '768px',
+      960: '960px',
+      1024: '1024px',
+      1280: '1280px',
       '1/2': '50%',
       '1/3': '33.33333%',
       '2/3': '66.66667%',
@@ -193,21 +202,16 @@ module.exports = {
       ...theme('commonLengths'),
     }),
 
-    padding: (theme) => theme('spacing'),
+    padding: (theme) => ({
+      100: '100px',
+      ...theme('spacing'),
+    }),
 
     margin: (theme, { negative }) => ({
       auto: 'auto',
       ...theme('spacing'),
       ...negative(theme('spacing')),
     }),
-
-    // boxShadow: {
-    //   default: customProperty('shadow'),
-    //   primary: customProperty('shadow-primary'),
-    //   dark: customProperty('shadow-dark'),
-    //   accessible: customProperty('shadow-accessible'),
-    //   none: 'none',
-    // },
 
     zIndex: {
       auto: 'auto',
