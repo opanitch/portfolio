@@ -14,11 +14,11 @@ const mainNavItems: NavItemType[] = [
     id: PAGE_NAMES.HOME,
     text: `{{@ cms.site.navigation.home @}}`,
   },
-  {
-    href: ROUTES.PORTFOLIO,
-    id: PAGE_NAMES.PORTFOLIO,
-    text: `{{@ cms.site.navigation.portfolio @}}`,
-  },
+  // {
+  //   href: ROUTES.PORTFOLIO,
+  //   id: PAGE_NAMES.PORTFOLIO,
+  //   text: `{{@ cms.site.navigation.portfolio @}}`,
+  // },
   {
     href: ROUTES.RESUME,
     id: PAGE_NAMES.RESUME,

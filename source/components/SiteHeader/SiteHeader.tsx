@@ -1,9 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import classnames from 'classnames';
 
 import mainNavItems from '../../../api/config/main-nav';
 
-import { Header, Link, List } from '../../atoms';
+import { Header, List } from '../../atoms';
 import FullWidthContainer from '../FullWidthContainer/FullWidthContainer';
 
 const SiteHeader = (): JSX.Element => {
@@ -21,7 +22,7 @@ const SiteHeader = (): JSX.Element => {
                       className={classnames({ 'ml-3': index > 0 }, 'px-1')}
                       key={index}
                     >
-                      <Link href={navItem.href}>{navItem.text}</Link>
+                      <RouterLink to={navItem.href}>{navItem.text}</RouterLink>
                     </li>
                   );
                 })}

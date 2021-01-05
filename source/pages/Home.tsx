@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-const HomePage: FunctionComponent = () => {
+const HomePage = () => {
   return (
     <div id="homepage" className="mb-1">
       <p>{`{{@ cms.home.title @}}`}</p>

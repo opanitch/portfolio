@@ -1,20 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
+// Styles First
 import './styles/app.css';
 
+import { RouteWithSubRoutes, SiteFooter, SiteHeader } from './components';
 import HomePage from './pages/Home';
 
-import { SiteFooter, SiteHeader } from './components';
+import routeConfig from './route-config';
 
 const renderAnchor = document.getElementById('portfolio');
 
 renderAnchor &&
   ReactDOM.render(
-    <div>
+    <Router>
       <SiteHeader />
       <HomePage />
+      <Switch>
+        {routeConfig.map((route, index) => (
+          <RouteWithSubRoutes key={index} {...route} />
+        ))}
+      </Switch>
       <SiteFooter />
-    </div>,
+    </Router>,
     renderAnchor
   );
