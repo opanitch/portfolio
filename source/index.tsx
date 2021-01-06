@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 // Styles First
 import './styles/app.css';
 
-import { RouteWithSubRoutes, SiteFooter, SiteHeader } from './components';
-import HomePage from './pages/Home';
-
+import { SiteFooter, SiteHeader } from './components';
 import routeConfig from './route-config';
 
 const renderAnchor = document.getElementById('portfolio');
@@ -16,11 +14,20 @@ renderAnchor &&
   ReactDOM.render(
     <Router>
       <SiteHeader />
-      <HomePage />
       <Switch>
-        {routeConfig.map((route, index) => (
-          <RouteWithSubRoutes key={index} {...route} />
-        ))}
+        {routeConfig.map((route, index) => {
+          const Component = route.component;
+          const path = route.path;
+
+          return (
+            <Route
+              key={index}
+              path={path}
+              exact={true}
+              render={(props) => <Component {...props} />}
+            />
+          );
+        })}
       </Switch>
       <SiteFooter />
     </Router>,

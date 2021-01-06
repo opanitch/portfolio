@@ -23,6 +23,10 @@ const routeConfig: RouteConfigType[] = [
     path: ROUTES.HOME,
   },
   {
+    component: PAGES.NOT_FOUND,
+    path: ROUTES.NOT_FOUND,
+  },
+  {
     component: PAGES.RESUME,
     path: ROUTES.RESUME,
   },

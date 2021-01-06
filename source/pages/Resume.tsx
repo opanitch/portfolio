@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { RESUME } from '../../api/constants/page-names';
+
 const ResumePage = () => {
   return (
-    <div id="resume" className="mb-1">
-      <p>{`{{@ cms.resume.title @}}`}</p>
+    <div id={RESUME} className="mb-1">
+      <p>{`{{@ cms.resume.title @}}`} 2</p>
     </div>
   );
 };

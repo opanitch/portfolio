@@ -5,6 +5,9 @@
   "home": {
     "title": "Home title"
   },
+  "not-found": {
+    "title": "404 Not Found"
+  },
   "portfolio": {
     "title": "Portfolio title"
   },

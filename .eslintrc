@@ -18,7 +18,7 @@
         "es6": true,
         "node": true
       },
-      "files": ["*.js"]
+      "files": ["*.js", "build/**", "webpack/**"]
     }
   ],
   "parser": "@typescript-eslint/parser",

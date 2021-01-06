@@ -1,0 +1,9 @@
+#####
+# To enable React Router's functionality on all paths without URL hacks,
+# we redirect all requests to `index` and handle all routing client-side
+#####
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

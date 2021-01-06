@@ -7,9 +7,12 @@ const plugins = require('./webpack/plugins');
 module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, './public/'),
+    // filename: 'mvb.js',
+    historyApiFallback: true,
     host: '0.0.0.0',
     port: 3000,
-    // public: 'http://local.opanitch.com:3000',
+    // public: 'http://local.opanitch.com:3000'
+    publicPath: '/',
   },
   entry: path.resolve(__dirname, './source/index.tsx'),
   module: {

@@ -25,6 +25,10 @@ siteMap
     pageTitle: '{{@ cms.home.title @}}',
     path: ROUTES.HOME,
   })
+  .set(PAGE_NAMES.NOT_FOUND, {
+    pageTitle: '{{@ cms.not-found.title @}}',
+    path: ROUTES.NOT_FOUND,
+  })
   .set(PAGE_NAMES.PORTFOLIO, {
     pageTitle: '{{@ cms.portfolio.title @}}',
     path: ROUTES.PORTFOLIO,
