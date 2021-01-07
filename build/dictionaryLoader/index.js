@@ -34,6 +34,7 @@ const schema = {
 const cache = new Map();
 const cacheFile = (file) => {
   let json = JSON.parse(fs.readFileSync(path.resolve(file), 'utf8'));
+
   cache.set(file, flatten(json));
 };
 
@@ -66,6 +67,7 @@ const getDictionaryFromDisk = (file) => {
  */
 const escapeApostrophe = (str) => {
   if (typeof str !== 'string') return;
+
   return str.replace(/"/g, '\\"').replace(/'/g, "\\'");
 };
 

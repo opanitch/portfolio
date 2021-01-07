@@ -1,3 +1,9 @@
+.sticky-footer {
+  @apply min-h-screen grid;
+
+  grid-template-rows: auto 1fr auto;
+}
+
 .container {
   @apply max-w-1024 mx-auto;
 }

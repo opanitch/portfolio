@@ -30,10 +30,9 @@ module.exports = () => {
       ],
     },
     {
-      test: /\.(html)$/,
+      test: /\.html$/,
       include: [resumeDir],
       use: [
-        dictionaryLoader,
         {
           loader: 'file-loader',
           options: {
@@ -43,7 +42,7 @@ module.exports = () => {
       ],
     },
     {
-      test: /\.(ts|js)x?$/,
+      test: /\.(js|ts)x?$/,
       include: dirList.map((file) => path.resolve(__dirname, file)),
       use: [dictionaryLoader],
     },
