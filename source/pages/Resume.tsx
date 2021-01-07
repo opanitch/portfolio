@@ -1,12 +1,21 @@
 import React from 'react';
 
+import ResumeHTML from '../../node_modules/resume-md/resume.html';
+
 import { RESUME } from '../../api/constants/page-names';
+
+import { FullWidthContainer } from '../components';
 
 const ResumePage = () => {
   return (
-    <div id={RESUME} className="mb-1">
-      <p>{`{{@ cms.resume.title @}}`} 2</p>
-    </div>
+    <FullWidthContainer id={RESUME}>
+      {() => (
+        <div>
+          <p>{`{{@ cms.resume.title @}}`} 2</p>
+          <iframe className="w-full h-screen" src={ResumeHTML}></iframe>
+        </div>
+      )}
+    </FullWidthContainer>
   );
 };
 

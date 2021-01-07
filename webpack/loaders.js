@@ -11,7 +11,8 @@ const dictionaryLoader = {
     pathToDictionary: dictionaryPath,
   },
 };
-const dirList = ['../api', '../source'];
+const dirList = ['../api', '../public', '../source'];
+const resumeDir = path.resolve(__dirname, '../node_modules/resume-md');
 
 module.exports = () => {
   return [
@@ -24,6 +25,19 @@ module.exports = () => {
           loader: 'postcss-loader',
           options: {
             postcssOptions: postCSSPlugins,
+          },
+        },
+      ],
+    },
+    {
+      test: /\.(html)$/,
+      include: [resumeDir],
+      use: [
+        dictionaryLoader,
+        {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/resume',
           },
         },
       ],
