@@ -25,7 +25,7 @@ module.exports = {
   },
   resolve: {
     alias: aliases,
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.html', '.js', '.jsx', '.ts', '.tsx'],
     modules: [path.resolve(__dirname, 'node_modules')],
   },
 };

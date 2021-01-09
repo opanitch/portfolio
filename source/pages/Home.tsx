@@ -2,11 +2,17 @@ import React from 'react';
 
 import { HOME } from '../../api/constants/page-names';
 
+import { FullWidthContainer } from '../components';
+
 const HomePage = () => {
   return (
-    <div id={HOME} className="pb-5">
-      <p>{`{{@ cms.home.title @}}`} 1</p>
-    </div>
+    <FullWidthContainer id={HOME} className="pb-5">
+      {({ ChildContainer }) => (
+        <ChildContainer>
+          <p>{`{{@ cms.home.title @}}`} 1</p>
+        </ChildContainer>
+      )}
+    </FullWidthContainer>
   );
 };
 

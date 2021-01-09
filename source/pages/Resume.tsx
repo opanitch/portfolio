@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 
-import ResumeHTML from '../../node_modules/resume-md/resume.html';
+import ResumeHTML from 'resume';
 
-import { RESUME } from '../../api/constants/page-names';
+import { RESUME } from 'API/constants/page-names';
 
-import { FullWidthContainer } from '../components';
+import { FullWidthContainer } from 'Components';
+
+const setResumeHeight = (event: SyntheticEvent) => {
+  const iFrame = event.currentTarget as HTMLIFrameElement;
+
+  iFrame.style.height = `${iFrame.contentWindow?.document.body.scrollHeight}px`;
+};
 
 const ResumePage = () => {
   return (
     <FullWidthContainer id={RESUME}>
       {() => (
-        <div>
-          <p>{`{{@ cms.resume.title @}}`} 2</p>
-          <iframe className="w-full h-screen" src={ResumeHTML}></iframe>
-        </div>
+        <iframe
+          className="w-full"
+          onLoad={(event) => setResumeHeight(event)}
+          src={ResumeHTML}
+        ></iframe>
       )}
     </FullWidthContainer>
   );

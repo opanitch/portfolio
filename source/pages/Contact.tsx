@@ -2,11 +2,17 @@ import React from 'react';
 
 import { CONTACT } from '../../api/constants/page-names';
 
+import { FullWidthContainer } from '../components';
+
 const ContactPage = () => {
   return (
-    <div id={CONTACT} className="mb-1">
-      <p>{`{{@ cms.contact.title @}}`} 3</p>
-    </div>
+    <FullWidthContainer id={CONTACT} className="pb-5">
+      {({ ChildContainer }) => (
+        <ChildContainer>
+          <p>{`{{@ cms.contact.title @}}`} 3</p>
+        </ChildContainer>
+      )}
+    </FullWidthContainer>
   );
 };
 

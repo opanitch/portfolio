@@ -11,10 +11,10 @@ interface FullWidthContainerProps extends HTMLAttributes<HTMLDivElement> {
 
 const ChildContainer: FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   children,
-  className: parentClassNames,
+  className: parentClasses,
   ...props
 }) => (
-  <div className={classnames(parentClassNames, 'container')} {...props}>
+  <div className={classnames(parentClasses, 'container')} {...props}>
     {children}
   </div>
 );
@@ -25,7 +25,7 @@ const FullWidthContainer: FunctionComponent<FullWidthContainerProps> = ({
   ...props
 }) => {
   return (
-    <div className={'w-full'} {...props}>
+    <div className={classnames(parentClasses, 'w-full')} {...props}>
       {children && children({ ChildContainer })}
     </div>
   );
