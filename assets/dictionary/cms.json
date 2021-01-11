@@ -1,5 +1,15 @@
 {
   "contact": {
+    "form": {
+      "description": "Thank you for checking me out. Here's an obligatory contact form to get to know me better.",
+      "inputs": {
+        "email": "E-Mail Address",
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "phone-number": "Phone Number"
+      },
+      "title": "Contact"
+    },
     "title": "Contact title"
   },
   "home": {
@@ -15,6 +25,9 @@
     "title": "Resume title"
   },
   "site": {
+    "common": {
+      "submit": "Submit"
+    },
     "navigation": {
       "contact": "Contact",
       "home": "Home",
