@@ -6,9 +6,13 @@
         "email": "E-Mail Address",
         "first-name": "First Name",
         "last-name": "Last Name",
+        "message": "Additional Message (optional)",
         "phone-number": "Phone Number"
       },
-      "title": "Contact"
+      "title": "Contact",
+      "validation": {
+        "names": "a-Z (and most international variations)  , . ' -"
+      }
     },
     "title": "Contact title"
   },

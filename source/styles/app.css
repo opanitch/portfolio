@@ -3,3 +3,14 @@
 @import 'tailwindcss/utilities';
 
 @import './utilities.css';
+
+#home {
+  background-image: url('ASSETS/images/garden-background-sm.png');
+  background-size: contain;
+}
+
+@screen md {
+  #home {
+    background-size: 550px auto;
+  }
+}

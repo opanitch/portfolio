@@ -59,5 +59,16 @@ module.exports = () => {
         esModule: false,
       },
     },
+    {
+      test: /\.(png|jpe?g|gif|svg|ico)$/i,
+      loader: 'file-loader',
+      options: {
+        esModule: false,
+        hash: 'sha512',
+        digest: 'hex',
+        publicPath: '/assets/images',
+        outputPath: './assets/images/',
+      },
+    },
   ];
 };
