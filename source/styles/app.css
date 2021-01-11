@@ -5,7 +5,7 @@
 @import './utilities.css';
 
 #home {
-  background-image: url('ASSETS/images/garden-background-sm.png');
+  background-image: url('ASSETS/images/garden-background.png');
   background-size: contain;
 }
 
