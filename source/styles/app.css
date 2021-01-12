@@ -2,14 +2,18 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import './fonts.css';
+@import './typography.css';
 @import './utilities.css';
 
+#contact,
 #home {
   background-image: url('ASSETS/images/garden-background.png');
   background-size: contain;
 }
 
 @screen md {
+  #contact,
   #home {
     background-size: 550px auto;
   }

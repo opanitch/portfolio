@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Yozakura';
+  src: url('ASSETS/fonts/yozakura-regular.woff2') format('woff2'),
+    url('ASSETS/fonts/yozakura-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Yoshi';
+  src: url('ASSETS/fonts/the_yoshi.woff2') format('woff2'),
+    url('ASSETS/fonts/the_yoshi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

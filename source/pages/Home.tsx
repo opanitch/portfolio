@@ -7,11 +7,7 @@ import { FullWidthContainer } from 'Components';
 const HomePage = () => {
   return (
     <FullWidthContainer id={HOME} className="pb-5 bg-center bg-no-repeat">
-      {({ ChildContainer }) => (
-        <ChildContainer>
-          <p>{`{{@ cms.home.title @}}`} 1</p>
-        </ChildContainer>
-      )}
+      {({ ChildContainer }) => <ChildContainer></ChildContainer>}
     </FullWidthContainer>
   );
 };

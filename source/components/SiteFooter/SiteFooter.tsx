@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { NavLink, Link as RouterLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
 import mainNavItems from '../../../api/config/main-nav';
@@ -15,7 +15,10 @@ const Footer: FunctionComponent = () => {
         <ChildContainer>
           <footer className="flex items-start justify-between mt-3 h-100">
             <nav className="pr-100 border-b-1">
-              <List className="flex" isOrdered={false}>
+              <List
+                className="flex leading-none font-header text-scale-4"
+                isOrdered={false}
+              >
                 {mainNavItems.map((navItem, index) => {
                   return (
                     <li
@@ -28,7 +31,7 @@ const Footer: FunctionComponent = () => {
                 })}
               </List>
             </nav>
-            <Header headerLevel={2} title="O." />
+            <Header className="logo" headerLevel={2} title="O." />
           </footer>
         </ChildContainer>
       )}

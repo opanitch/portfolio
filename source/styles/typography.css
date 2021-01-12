@@ -1,0 +1,46 @@
+/**
+ * Typography Classes
+ * * Base Header styles
+ * * Base Paragraph styles
+ * * 
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply leading-none font-header;
+}
+
+h1 {
+  @apply text-scale-8;
+}
+
+h2 {
+  @apply text-scale-7;
+}
+
+h3 {
+  @apply text-scale-6;
+}
+
+h4 {
+  @apply text-scale-5;
+}
+
+h5 {
+  @apply text-scale-4;
+}
+
+p {
+  @apply font-primary text-scale-0;
+}
+
+.logo {
+  @apply font-logo text-scale-8;
+}
+
+footer .logo {
+  @apply text-scale-5;
+}
