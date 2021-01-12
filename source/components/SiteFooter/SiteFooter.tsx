@@ -13,25 +13,30 @@ const Footer: FunctionComponent = () => {
     <FullWidthContainer>
       {({ ChildContainer }) => (
         <ChildContainer>
-          <footer className="flex items-start justify-between mt-3 h-100">
-            <nav className="pr-100 border-b-1">
-              <List
-                className="flex leading-none font-header text-scale-4"
-                isOrdered={false}
-              >
-                {mainNavItems.map((navItem, index) => {
-                  return (
-                    <li
-                      className={classnames({ 'ml-3': index > 0 }, 'px-1')}
-                      key={index}
-                    >
-                      <NavLink to={navItem.href}>{navItem.text}</NavLink>
-                    </li>
-                  );
-                })}
-              </List>
-            </nav>
-            <Header className="logo" headerLevel={2} title="O." />
+          <footer className="mt-3">
+            <div className="flex items-start justify-between w-full">
+              <nav className="pr-100 border-b-1">
+                <List
+                  className="flex leading-none font-header text-scale-4"
+                  isOrdered={false}
+                >
+                  {mainNavItems.map((navItem, index) => {
+                    return (
+                      <li
+                        className={classnames({ 'ml-3': index > 0 }, 'px-1')}
+                        key={index}
+                      >
+                        <NavLink to={navItem.href}>{navItem.text}</NavLink>
+                      </li>
+                    );
+                  })}
+                </List>
+              </nav>
+              <Header className="logo" headerLevel={2} title="O." />
+            </div>
+            <p className="py-2 mt-3 text-right text-scale-n1">
+              &copy; 2021 Oren Panitch
+            </p>
           </footer>
         </ChildContainer>
       )}
