@@ -5,10 +5,10 @@ import FormFooter from './FormFooter';
 import FormHeader from './FormHeader';
 
 type FormProps = JSX.IntrinsicElements['form'] & {
-  description: string;
+  description?: string;
   formActions: ReactNode;
   id: string;
-  title: string;
+  title?: string;
 };
 
 const TextInput: FunctionComponent<FormProps> = ({
@@ -24,7 +24,7 @@ const TextInput: FunctionComponent<FormProps> = ({
       {(description || title) && (
         <FormHeader title={title} description={description} />
       )}
-      {children}
+      <div className="my-3">{children}</div>
       {formActions && <FormFooter>{formActions}</FormFooter>}
     </form>
   );

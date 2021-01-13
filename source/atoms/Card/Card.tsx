@@ -10,7 +10,10 @@ const Card: FunctionComponent<CardProps> = ({
 }) => {
   return (
     <div
-      className={classnames('p-4 bg-white shadow-lg', parentClasses)}
+      className={classnames(
+        'p-3 bg-white bg-opacity-90 shadow-lg md:p-4',
+        parentClasses
+      )}
       {...props}
     >
       {children}

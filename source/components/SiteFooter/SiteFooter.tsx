@@ -2,11 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
-import mainNavItems from '../../../api/config/main-nav';
+import mainNavItems from 'CONFIG/main-nav';
 
-import { Header, List } from '../../atoms';
+import { Header, List, ListItem } from 'Atoms';
 
-import FullWidthContainer from '../FullWidthContainer/FullWidthContainer';
+import { FullWidthContainer } from 'Components';
 
 const Footer: FunctionComponent = () => {
   return (
@@ -15,24 +15,28 @@ const Footer: FunctionComponent = () => {
         <ChildContainer>
           <footer className="mt-3">
             <div className="flex items-start justify-between w-full">
-              <nav className="pr-100 border-b-1">
+              <nav className="pr-50 md:pr-100 border-t-1">
                 <List
                   className="flex leading-none font-header text-scale-4"
                   isOrdered={false}
                 >
                   {mainNavItems.map((navItem, index) => {
                     return (
-                      <li
+                      <ListItem
                         className={classnames({ 'ml-3': index > 0 }, 'px-1')}
                         key={index}
                       >
                         <NavLink to={navItem.href}>{navItem.text}</NavLink>
-                      </li>
+                      </ListItem>
                     );
                   })}
                 </List>
               </nav>
-              <Header className="logo" headerLevel={2} title="O." />
+              <Header
+                className="font-logo text-scale-5"
+                headerLevel={2}
+                title="O."
+              />
             </div>
             <p className="py-2 mt-3 text-right text-scale-n1">
               &copy; 2021 Oren Panitch
