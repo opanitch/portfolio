@@ -1,0 +1,16 @@
+# Documentation https://react-svgr.com/docs/options/
+babel: false
+expandedProps: 'end' # All properties given to component will be forwarded on SVG tag. Possible values: "start", "end" or false.
+icon: true # Replace SVG "width" and "height" value by "1em" in order to make SVG size inherits from text size.
+titleProp: true # Add title tag via title property. If titleProp is set to true and no title is provided (title={undefined}) at render time, this will fallback to existing title element in the svg if exists.
+svgProps:
+  'aria-hidden': 'true'
+  focusable: false
+  role: 'img'
+# Specify SVGO config. See SVGO options: https://github.com/svg/svgo
+svgoConfig:
+  removeAttributesBySelector:
+    selector: "[style*='mix-blend-mode']"
+    attributes: 'style'
+  removeXMLNS: true
+  removeTitle: true # Remove embedded title in the svg, not the one we pass in.

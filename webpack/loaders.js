@@ -52,15 +52,11 @@ module.exports = () => {
       use: ['babel-loader', 'eslint-loader'],
     },
     {
-      test: /\.(eot|ttf|woff|woff2)$/,
-      loader: 'file-loader',
-      options: {
-        name: 'assets/fonts/[name].[ext]',
-        esModule: false,
-      },
+      test: /\.svg$/i,
+      use: ['@svgr/webpack'],
     },
     {
-      test: /\.(png|jpe?g|gif|svg|ico)$/i,
+      test: /\.(png|jpe?g|gif|ico)$/i,
       loader: 'file-loader',
       options: {
         esModule: false,
@@ -68,6 +64,14 @@ module.exports = () => {
         digest: 'hex',
         publicPath: '/assets/images',
         outputPath: './assets/images/',
+      },
+    },
+    {
+      test: /\.(eot|ttf|woff|woff2)$/,
+      loader: 'file-loader',
+      options: {
+        name: 'assets/fonts/[name].[ext]',
+        esModule: false,
       },
     },
   ];

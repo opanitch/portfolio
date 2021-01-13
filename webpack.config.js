@@ -4,6 +4,16 @@ const aliases = require('./webpack/aliases');
 const loaders = require('./webpack/loaders');
 const plugins = require('./webpack/plugins');
 
+console.log('**********************************************');
+console.log('*********** WEBPACK CONFIG ALIASES ***********');
+console.log(aliases);
+console.log('*********** WEBPACK CONFIG LOADERS ***********');
+console.log(loaders);
+console.log('*********** WEBPACK CONFIG PLUGINS ***********');
+console.log(plugins);
+console.log('************* WEBPACK CONFIG END *************');
+console.log('**********************************************');
+
 module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, './public/'),

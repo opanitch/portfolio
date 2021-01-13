@@ -5,7 +5,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 // Styles First
 import './styles/app.css';
 
-import { SiteFooter, SiteHeader } from './components';
+import { SiteFooter, SiteHeader } from 'Components';
 import routeConfig from './route-config';
 
 const renderAnchor = document.getElementById('portfolio');

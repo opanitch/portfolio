@@ -43,9 +43,18 @@
     "paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
       "API/*": ["api/*"],
       "ASSETS/*": ["assets/*"],
+      "Atoms/*": ["source/atoms/*"],
+      "Atoms": ["source/atoms"],
       "Components/*": ["source/components/*"],
       "Components": ["source/components"],
-      "resume": ["node_modules/resume-md/resume"]
+      "CONFIG/*": ["api/config/*"],
+      "CONSTANTS/*": ["api/constants/*"],
+      "Containers/*": ["source/containers/*"],
+      "Containers": ["source/containers"],
+      "HELPERS/*": ["api/helpers/*"],
+      "Pages/*": ["source/pages/*"],
+      "Pages": ["source/pages"],
+      "resume/*": ["node_modules/resume-md/resume/*"]
     },
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
@@ -62,6 +71,7 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
   },
+  "exclude": ["node_modules"],
   "files": ["globals.d.ts", "type-utilities.d.ts"],
   "include": ["api", "source"]
 }

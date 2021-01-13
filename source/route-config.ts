@@ -1,8 +1,8 @@
 // import { FunctionComponent, ReactNode } from 'react';
 
-import * as ROUTES from '../api/constants/routes';
+import * as ROUTES from 'CONSTANTS/routes';
 
-import * as PAGES from './pages';
+import * as PAGES from 'Pages';
 
 type RouteType = {
   component: () => JSX.Element;

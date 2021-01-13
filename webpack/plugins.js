@@ -1,5 +1,7 @@
 // const webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = () => {
   return [
@@ -33,6 +35,10 @@ module.exports = () => {
         },
         { from: 'node_modules/resume-md/resume.css', to: 'assets/resume' },
       ],
+    }),
+    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
+    new CompressionPlugin({
+      test: /\.(js|css|html|svg|json)$/,
     }),
   ];
 };
