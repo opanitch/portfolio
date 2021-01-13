@@ -30,6 +30,13 @@ const addUtilitiesFromConfig = (name, classPrefix = `${name}-`) => ({
 const pxToRem = (px, base = 16) => `${px / base}rem`;
 
 module.exports = {
+  corePlugins: {
+    container: false,
+    float: false,
+  },
+
+  plugins: [addUtilitiesFromConfig('a11y', '')],
+
   purge: {
     // enabled: true,
     content: [
@@ -41,6 +48,36 @@ module.exports = {
   },
 
   theme: {
+    a11y: {
+      'visually-hidden': {
+        border: '0',
+        clip: 'rect(0 0 0 0)',
+        clipPath: 'inset(50%)',
+        height: '1px',
+        margin: '-1px',
+        overflow: 'hidden',
+        padding: '0',
+        position: 'absolute',
+        width: '1px',
+        'white-space': 'nowrap',
+      },
+    },
+
+    backgroundSize: {
+      auto: 'auto',
+      cover: 'cover',
+      contain: 'contain',
+    },
+
+    borderWidth: {
+      default: '1px',
+      0: '0',
+      1: '1px',
+      2: '2px',
+      3: '3px',
+      4: '4px',
+    },
+
     branding: {
       white: '#ffffff',
       'cool-grey-1': '#fbfcfc',
@@ -60,19 +97,6 @@ module.exports = {
       black: '#000000',
     },
 
-    spacing: {
-      0: 0,
-      1: pxToRem(4),
-      2: pxToRem(8),
-      3: pxToRem(16),
-      4: pxToRem(24),
-      5: pxToRem(32),
-      6: pxToRem(40),
-      7: pxToRem(48),
-      8: pxToRem(56),
-      9: pxToRem(64),
-    },
-
     // These are spread into width, height, min-width, min-height, min-height, max-height
     // Try to avoid adding numbers here and use an inline style if it's a one off number...
     commonLengths: {
@@ -85,24 +109,29 @@ module.exports = {
       960: '960px',
       1024: '1024px',
       1280: '1280px',
-      '1/2': '50%',
-      '1/3': '33.33333%',
-      '2/3': '66.66667%',
-      '1/4': '25%',
-      '3/4': '75%',
-      '1/5': '20%',
-      '2/5': '40%',
-      '3/5': '60%',
-      '4/5': '80%',
       '1/6': '16.66667%',
+      '1/5': '20%',
+      '1/4': '25%',
+      '1/3': '33.33333%',
+      '2/5': '40%',
+      '1/2': '50%',
+      '3/5': '60%',
+      '2/3': '66.66667%',
+      '3/4': '75%',
+      '4/5': '80%',
       '5/6': '83.33333%',
       full: '100%',
     },
 
-    screens: {
-      sm: '480px',
-      md: '728px',
-      lg: '1024px',
+    fill: {
+      current: 'currentColor',
+      none: 'none',
+    },
+
+    fontFamily: {
+      header: ['Yozakura'],
+      logo: ['Yoshi'],
+      primary: ['Helvetica', 'Arial', 'sans-serif'],
     },
 
     fontSize: {
@@ -142,76 +171,43 @@ module.exports = {
       loose: 1.75,
     },
 
-    textColor: (theme) => theme('colors'),
-
-    backgroundColor: (theme) => theme('colors'),
-
-    backgroundSize: {
-      auto: 'auto',
-      cover: 'cover',
-      contain: 'contain',
-    },
-
-    borderWidth: {
-      default: '1px',
-      0: '0',
-      1: '1px',
-      2: '2px',
-      3: '3px',
-      4: '4px',
-    },
-
-    borderColor: (theme) => ({
-      default: theme('colors.grey-7'),
-      ...theme('colors'),
-    }),
-
-    width: (theme) => ({
-      auto: 'auto',
-      screen: '100vw',
-      ...theme('commonLengths'),
-    }),
-
-    height: (theme) => ({
-      auto: 'auto',
-      screen: '100vh',
-      ...theme('commonLengths'),
-    }),
-
-    minWidth: (theme) => ({
-      auto: 'auto',
-      screen: '100vw',
-      ...theme('commonLengths'),
-    }),
-
-    minHeight: (theme) => ({
-      0: '0',
-      screen: '100vh',
-      ...theme('commonLengths'),
-    }),
-
-    maxWidth: (theme) => ({
+    listStyleType: {
+      circle: 'circle',
+      disc: 'disc',
       none: 'none',
-      screen: '100vw',
-      ...theme('commonLengths'),
-    }),
+    },
 
-    maxHeight: (theme) => ({
-      auto: 'auto',
-      screen: '100vh',
-      ...theme('commonLengths'),
-    }),
+    opacity: {
+      0: '0',
+      25: '.25',
+      50: '.5',
+      75: '.75',
+      90: '.90',
+      100: '1',
+    },
 
-    padding: (theme) => ({
-      100: '100px',
-      ...theme('spacing'),
-    }),
+    spacing: {
+      0: 0,
+      1: pxToRem(4),
+      2: pxToRem(8),
+      3: pxToRem(16),
+      4: pxToRem(24),
+      5: pxToRem(32),
+      6: pxToRem(40),
+      7: pxToRem(48),
+      8: pxToRem(56),
+      9: pxToRem(64),
+    },
 
-    margin: (theme, { negative }) => ({
-      auto: 'auto',
-      ...theme('spacing'),
-      ...negative(theme('spacing')),
-    }),
+    screens: {
+      sm: '480px',
+      md: '728px',
+      lg: '1024px',
+    },
+
+    stroke: {
+      current: 'currentColor',
+    },
 
     zIndex: {
       auto: 'auto',
@@ -223,45 +219,68 @@ module.exports = {
       50: 50,
     },
 
-    opacity: {
-      0: '0',
-      25: '.25',
-      50: '.5',
-      75: '.75',
-      100: '1',
-    },
+    backgroundColor: (theme) => theme('colors'),
 
-    fill: {
-      current: 'currentColor',
+    borderColor: (theme) => ({
+      default: theme('colors.grey-7'),
+      ...theme('colors'),
+    }),
+
+    height: (theme) => ({
+      auto: 'auto',
+      screen: '100vh',
+      ...theme('commonLengths'),
+    }),
+
+    margin: (theme, { negative }) => ({
+      auto: 'auto',
+      ...theme('spacing'),
+      ...negative(theme('spacing')),
+    }),
+
+    maxHeight: (theme) => ({
+      auto: 'auto',
+      screen: '100vh',
+      ...theme('commonLengths'),
+    }),
+
+    maxWidth: (theme) => ({
       none: 'none',
-    },
+      screen: '100vw',
+      ...theme('commonLengths'),
+    }),
 
-    stroke: {
-      current: 'currentColor',
-    },
+    minHeight: (theme) => ({
+      0: '0',
+      screen: '100vh',
+      ...theme('commonLengths'),
+    }),
 
-    a11y: {
-      'visually-hidden': {
-        border: '0',
-        clip: 'rect(0 0 0 0)',
-        clipPath: 'inset(50%)',
-        height: '1px',
-        margin: '-1px',
-        overflow: 'hidden',
-        padding: '0',
-        position: 'absolute',
-        width: '1px',
-        'white-space': 'nowrap',
-      },
-    },
+    minWidth: (theme) => ({
+      auto: 'auto',
+      screen: '100vw',
+      ...theme('commonLengths'),
+    }),
+
+    padding: (theme) => ({
+      50: '50px',
+      100: '100px',
+      ...theme('spacing'),
+    }),
+
+    textColor: (theme) => theme('colors'),
+
+    width: (theme) => ({
+      auto: 'auto',
+      screen: '100vw',
+      ...theme('commonLengths'),
+    }),
 
     /**
      * ---------------
      *
      *  Here is where to put custom stuff that we want to SUPPLEMENT our plugins with
      *    ie. we are _extending_ the base theme.
-     *
-     *   base === xfinity ds token theme
      *
      * ---------------
      */
@@ -315,115 +334,76 @@ module.exports = {
           15: theme('branding.black'),
         },
       }),
-
-      fontSize: {
-        '14px': '14px',
-        '16px': '16px',
-        'scale-n2': pxToRem(12),
-        'scale-n1': pxToRem(14),
-        'scale-0': pxToRem(16),
-        'scale-1': pxToRem(18),
-        'scale-2': pxToRem(20),
-        'scale-3': pxToRem(22),
-        'scale-4': pxToRem(24),
-        'scale-5': pxToRem(26),
-        'scale-6': pxToRem(28),
-        'scale-7': pxToRem(32),
-        'scale-8': pxToRem(36),
-        'scale-9': pxToRem(48),
-        'scale-10': pxToRem(72),
-      },
-
-      lineHeight: {
-        none: 1, //TODO put this in the tokens repo
-      },
-    },
-
-    listStyleType: {
-      circle: 'circle',
-      disc: 'disc',
-      none: 'none',
     },
   },
 
   variants: {
-    accessibility: ['responsive', 'focus'],
-    alignContent: ['responsive'],
-    alignItems: ['responsive'],
-    alignSelf: ['responsive'],
-    appearance: ['responsive'],
-    backgroundAttachment: ['responsive'],
-    backgroundColor: ['responsive', 'hover', 'focus'],
-    backgroundPosition: ['responsive'],
-    backgroundRepeat: ['responsive'],
-    backgroundSize: ['responsive'],
-    borderCollapse: [],
-    borderColor: ['responsive', 'hover', 'focus'],
-    borderStyle: ['responsive'],
-    borderWidth: ['responsive', 'focus'],
-    boxShadow: ['responsive', 'hover', 'focus'],
-    cursor: ['responsive'],
-    display: ['responsive'],
-    fill: ['hover', 'focus', 'group-hover'],
+    // accessibility: ['responsive', 'focus'],
+    // alignContent: ['responsive'],
+    // alignItems: ['responsive'],
+    // alignSelf: ['responsive'],
+    // appearance: ['responsive'],
+    // backgroundAttachment: ['responsive'],
+    backgroundColor: ['focus', 'hover', 'responsive'],
+    // backgroundPosition: ['responsive'],
+    // backgroundRepeat: ['responsive'],
+    // backgroundSize: ['responsive'],
+    // borderCollapse: [],
+    // borderColor: ['responsive', 'hover', 'focus'],
+    // borderStyle: ['responsive'],
+    borderWidth: ['focus', 'hover', 'responsive'],
+    // boxShadow: ['responsive', 'hover', 'focus'],
+    // cursor: ['responsive'],
+    // display: ['responsive'],
+    // fill: ['hover', 'focus', 'group-hover'],
     flex: ['responsive'],
     flexDirection: ['responsive'],
-    flexGrow: ['responsive'],
-    flexShrink: ['responsive'],
-    flexWrap: ['responsive'],
-    float: [],
-    fontFamily: ['responsive'],
-    fontSize: ['responsive'],
-    fontSmoothing: ['responsive'],
-    fontStyle: ['responsive'],
-    fontWeight: ['responsive', 'hover', 'focus'],
-    height: ['responsive'],
-    inset: ['responsive'],
-    justifyContent: ['responsive'],
-    letterSpacing: ['responsive'],
-    lineHeight: ['responsive'],
-    lists: ['responsive'],
-    listStylePosition: ['responsive'],
-    listStyleType: ['responsive'],
-    margin: ['responsive'],
-    maxHeight: ['responsive'],
-    maxWidth: ['responsive'],
-    minHeight: ['responsive'],
-    minWidth: ['responsive'],
-    objectFit: ['responsive'],
-    objectPosition: ['responsive'],
-    opacity: ['responsive', 'hover'],
-    order: ['responsive'],
-    outline: ['focus'],
-    overflow: ['responsive'],
+    // flexGrow: ['responsive'],
+    // flexShrink: ['responsive'],
+    // flexWrap: ['responsive'],
+    // fontFamily: ['responsive'],
+    // fontSize: ['responsive'],
+    // fontSmoothing: ['responsive'],
+    // fontStyle: ['responsive'],
+    // fontWeight: ['responsive', 'hover', 'focus'],
+    // height: ['responsive'],
+    // inset: ['responsive'],
+    // justifyContent: ['responsive'],
+    // letterSpacing: ['responsive'],
+    // lineHeight: ['responsive'],
+    // lists: ['responsive'],
+    // listStylePosition: ['responsive'],
+    // listStyleType: ['responsive'],
+    // margin: ['responsive'],
+    // maxHeight: ['responsive'],
+    // maxWidth: ['responsive'],
+    // minHeight: ['responsive'],
+    // minWidth: ['responsive'],
+    // objectFit: ['responsive'],
+    // objectPosition: ['responsive'],
+    // opacity: ['responsive', 'hover'],
+    // order: ['responsive'],
+    // outline: ['focus'],
+    // overflow: ['responsive'],
     padding: ['responsive'],
-    pointerEvents: [],
-    position: ['responsive'],
-    resize: ['responsive'],
-    stroke: ['group-hover'],
-    tableLayout: ['responsive'],
-    textAlign: ['responsive'],
-    textColor: ['responsive', 'hover', 'focus'],
-    textDecoration: ['responsive'],
-    textTransform: ['responsive'],
-    userSelect: ['responsive'],
-    verticalAlign: ['responsive'],
-    visibility: ['responsive'],
-    whitespace: ['responsive'],
+    // pointerEvents: [],
+    // position: ['responsive'],
+    // resize: ['responsive'],
+    // stroke: ['group-hover'],
+    // tableLayout: ['responsive'],
+    // textAlign: ['responsive'],
+    // textColor: ['responsive', 'hover', 'focus'],
+    // textDecoration: ['responsive'],
+    // textTransform: ['responsive'],
+    // userSelect: ['responsive'],
+    // verticalAlign: ['responsive'],
+    // visibility: ['responsive'],
+    // whitespace: ['responsive'],
     width: ['responsive'],
-    wordBreak: ['responsive'],
-    zIndex: ['responsive'],
+    // wordBreak: ['responsive'],
+    // zIndex: ['responsive'],
 
     // Custom
-    a11y: [],
-  },
-
-  plugins: [
-    addUtilitiesFromConfig('a11y', ''),
-    addUtilitiesFromConfig('typography', ''),
-  ],
-
-  corePlugins: {
-    container: false,
-    float: false,
+    // a11y: [],
   },
 };

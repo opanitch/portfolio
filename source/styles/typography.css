@@ -36,11 +36,3 @@ h5 {
 p {
   @apply font-primary text-scale-0;
 }
-
-.logo {
-  @apply font-logo text-scale-8;
-}
-
-footer .logo {
-  @apply text-scale-5;
-}
