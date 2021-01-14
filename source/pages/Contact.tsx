@@ -87,12 +87,12 @@ const ContactPage = () => {
                   <LinkedinIcon />
                 </Link>
               </ListItem>
-              <ListItem className="md:ml-4">
+              <ListItem className="ml-4">
                 <Link href="https://github.com/opanitch" target="_blank">
                   <GithubIcon />
                 </Link>
               </ListItem>
-              <ListItem className="md:ml-4">
+              <ListItem className="ml-4">
                 <Link href="mailto:oren@opanitch.com">
                   <Email2Icon />
                 </Link>
