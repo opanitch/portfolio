@@ -33,9 +33,10 @@ const Footer: FunctionComponent = () => {
                 </List>
               </nav>
               <Header
-                className="font-logo text-scale-5"
+                className="mt-2 text-scale-5"
+                fontName="font-logo"
                 headerLevel={2}
-                title="O."
+                title="O.P"
               />
             </div>
             <p className="py-2 mt-3 text-right text-scale-n1">

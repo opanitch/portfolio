@@ -15,9 +15,10 @@ const SiteHeader = (): JSX.Element => {
         <ChildContainer>
           <header className="flex items-end justify-between mb-3 h-100">
             <Header
-              className="font-logo text-scale-8"
+              className="mb-2 text-scale-8"
+              fontName="font-logo"
               headerLevel={1}
-              title="O."
+              title="O.P"
             />
             <nav className="pl-50 md:pl-100 border-b-1">
               <List
