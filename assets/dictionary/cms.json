@@ -20,6 +20,19 @@
     "title": "Contact title"
   },
   "home": {
+    "quotes": {
+      "de-plum": "only after enduring the bone-chilling cold shall you smell the fragrance of the plum blossom.",
+      "btth-ditch": "if you find yourself stuck in a ditch or forsaken by the world, don’t panic. take two steps forward and maybe you’ll find yourself stronger than ever before.",
+      "btth-happiness": "there are far more people willing to share in your happiness than aid in your sorrow.",
+      "btth-war": "the first drum boosts courage, the second lowers morale, and the third exhausts courage.",
+      "sotr-dream": "I made one dream through nine lifetimes and dried the vast oceans with one laugh. ask not how high the heavens are, I ride the waves myself",
+      "sotr-luck": "chance and luck wait for no one.",
+      "sotr-passivity": "playing it by ear means always residing in passivity. we make not a move because we choose to.",
+      "sotr-philosophy": "one gives birth to two, two gives birth to three, and three gives birth to all living beings.",
+      "sotr-profit": "all underneath the heavens congregate for profit. all underneath the heavens disperse for profit.",
+      "sotr-strength": "the strong control their destinies and the weak complain about their fates.",
+      "sotr-trust": "trust the ones you call upon, and don't call upon those you doubt."
+    },
     "title": "Home title"
   },
   "not-found": {
