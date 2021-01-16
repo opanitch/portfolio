@@ -1,7 +1,7 @@
 {
   "author": "Oren Panitch",
   "name": "portfolio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Public repo housing pre-build of portfolio site.",
   "keywords": [],
   "homepage": "https://github.com/opanitch/portfolio#readme",
@@ -70,7 +70,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "resume-md": "git+https://github.com/opanitch/resume.md#2.5.0",
+    "resume-md": "git+https://github.com/opanitch/resume.md#2.6.0",
     "schema-utils": "^3.0.0"
   },
   "scripts": {
