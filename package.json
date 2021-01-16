@@ -74,7 +74,7 @@
     "schema-utils": "^3.0.0"
   },
   "scripts": {
-    "build": "postcss --use postcss-import --use tailwindcss -o ./public/assets/styles.css ./source/styles/app.css && NODE_ENV=production webpack --config ./webpack.config.js --mode production",
+    "build": "ls public/ | grep -v index.html | xargs -I{} rm -rf public/{} && postcss --use postcss-import --use tailwindcss -o ./public/assets/styles.css ./source/styles/app.css && NODE_ENV=production webpack --config ./webpack.config.js --mode production",
     "cleaninstall": "rm -rf node_modules/ && rm package-lock.json && npm cache clean --force && npm i",
     "start": "webpack serve --config ./webpack.config.js --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
