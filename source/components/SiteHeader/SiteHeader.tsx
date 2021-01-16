@@ -15,14 +15,13 @@ const SiteHeader = (): JSX.Element => {
         <ChildContainer>
           <header className="flex items-end justify-between mb-3 h-100">
             <Header
-              className="mb-2 text-scale-8"
-              fontName="font-logo"
+              className="mb-2 text-scale-8 font-logo"
               headerLevel={1}
               title="O.P"
             />
             <nav className="pl-50 md:pl-100 border-b-1">
               <List
-                className="flex leading-none font-header text-scale-6"
+                className="flex leading-none font-coffee text-scale-6"
                 isOrdered={false}
               >
                 {mainNavItems.map((navItem, index) => {

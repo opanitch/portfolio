@@ -76,8 +76,12 @@ const ContactPage = () => {
             </Form>
           </Card> */}
           <Card className="w-5/6 md:w-3/5 lg:w-1/2">
-            <Header headerLevel={2} title={`{{@ cms.contact.form.title @}}`} />
-            <p>{`{{@ cms.contact.description @}}`}</p>
+            <Header
+              className="mb-2"
+              headerLevel={2}
+              title={`{{@ cms.contact.form.title @}}`}
+            />
+            <p className="font-nugo">{`{{@ cms.contact.description @}}`}</p>
             <List className="flex justify-center mt-3 leading-none text-scale-6">
               <ListItem>
                 <Link

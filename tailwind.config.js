@@ -129,8 +129,10 @@ module.exports = {
     },
 
     fontFamily: {
-      header: ['Yozakura'],
+      coffee: ['Afternoon Coffee'],
+      exon: ['Exon'],
       logo: ['Yoshi'],
+      nugo: ['Nugo Sans Light'],
       primary: ['Helvetica', 'Arial', 'sans-serif'],
     },
 

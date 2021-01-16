@@ -19,7 +19,7 @@ const Footer: FunctionComponent = () => {
             <div className="flex items-start justify-between w-full">
               <nav className="pr-50 md:pr-100 border-t-1">
                 <List
-                  className="flex pt-1 leading-none font-header text-scale-4"
+                  className="flex pt-1 leading-none font-coffee text-scale-4"
                   isOrdered={false}
                 >
                   {mainNavItems.map((navItem, index) => {
@@ -35,8 +35,7 @@ const Footer: FunctionComponent = () => {
                 </List>
               </nav>
               <Header
-                className="mt-2 text-scale-5"
-                fontName="font-logo"
+                className="mt-2 text-scale-5 font-logo"
                 headerLevel={2}
                 title="O.P"
               />
