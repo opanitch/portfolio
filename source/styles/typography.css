@@ -33,6 +33,7 @@ h5 {
   @apply text-scale-4;
 }
 
-p {
+p,
+ul {
   @apply font-primary text-scale-0;
 }

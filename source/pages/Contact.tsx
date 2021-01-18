@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import classnames from 'classnames';
 
 import Email2Icon from 'ASSETS/icons/email.svg';
 import GithubIcon from 'ASSETS/icons/github.svg';
@@ -18,9 +19,16 @@ import {
 } from 'Atoms';
 import { Form, FullWidthContainer } from 'Components';
 
-const ContactPage = () => {
+const ContactPage: FunctionComponent<Page> = ({
+  className: parentClasses,
+}: {
+  className: string;
+}) => {
   return (
-    <FullWidthContainer id={CONTACT} className="pb-5 bg-center bg-no-repeat">
+    <FullWidthContainer
+      id={CONTACT}
+      className={classnames('pb-5 bg-center bg-no-repeat', parentClasses)}
+    >
       {({ ChildContainer }) => (
         <ChildContainer className="flex items-center justify-center h-full">
           {/* <Card className="w-5/6 md:w-3/5 lg:w-1/2">

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
@@ -6,20 +6,20 @@ import GitHubIcon from 'ASSETS/icons/github.svg';
 
 import mainNavItems from 'CONFIG/main-nav';
 
-import { Header, Link, List, ListItem } from 'Atoms';
+import { Link, List, ListItem } from 'Atoms';
 
 import { FullWidthContainer } from 'Components';
 
-const Footer: FunctionComponent = () => {
+const Footer = ({ className: parentClasses }: { className: string }) => {
   return (
-    <FullWidthContainer>
+    <FullWidthContainer className={classnames('relative', parentClasses)}>
       {({ ChildContainer }) => (
         <ChildContainer>
-          <footer className="mt-3">
+          <footer className="mt-3 text-white">
             <div className="flex items-start justify-between w-full">
-              <nav className="pr-50 md:pr-100 border-t-1">
+              <nav className="border-white pr-50 md:pr-100 border-t-1">
                 <List
-                  className="flex pt-1 leading-none font-coffee text-scale-4"
+                  className="flex pt-2 leading-none font-coffee text-scale-4"
                   isOrdered={false}
                 >
                   {mainNavItems.map((navItem, index) => {
@@ -34,20 +34,16 @@ const Footer: FunctionComponent = () => {
                   })}
                 </List>
               </nav>
-              <Header
-                className="mt-2 text-scale-5 font-logo"
-                headerLevel={2}
-                title="O.P"
-              />
             </div>
-            <div className="flex items-start justify-between w-full">
-              <Link
-                className="p-2 mt-1 rounded-md text-scale-n1 border-1"
+            <div className="flex items-end justify-end w-full">
+              {/* <Link
+                className="p-2 mt-1 border-white rounded-md text-scale-n1 border-1"
                 href="https://github.com/opanitch/portfolio"
                 target="_blank"
               >
-                See on <GitHubIcon className="inline-block text-scale-3" />
-              </Link>
+                See on{' '}
+                <GitHubIcon className="inline-block fill-current text-scale-3" />
+              </Link> */}
 
               <p className="py-2 mt-3 text-scale-n1">
                 &copy; 2021 Oren Panitch

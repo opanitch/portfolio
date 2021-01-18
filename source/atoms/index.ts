@@ -9,3 +9,4 @@ export { default as TextInput } from './Inputs/TextInput';
 export { default as Link } from './Link/Link';
 export { default as List } from './Lists/List';
 export { default as ListItem } from './Lists/ListItem';
+export { default as VideoBackground } from './VideoBackground/VideoBackground';

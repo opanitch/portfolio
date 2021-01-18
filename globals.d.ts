@@ -1,4 +1,5 @@
 declare module '*.html';
+declare module '*.jpg';
 declare module '*.svg' {
   import * as React from 'react';
 
@@ -6,3 +7,7 @@ declare module '*.svg' {
 
   export default ReactComponent;
 }
+
+declare type Page = JSX.IntrinsicElements['div'] & {
+  className: string;
+};

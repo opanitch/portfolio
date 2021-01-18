@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import classnames from 'classnames';
 
 import { HOME } from 'API/constants/page-names';
 
@@ -25,9 +26,16 @@ const getQuote = (quotes: string[]): string => {
   return quotes[randomNum];
 };
 
-const HomePage = () => {
+const HomePage: FunctionComponent<Page> = ({
+  className: parentClasses,
+}: {
+  className: string;
+}) => {
   return (
-    <FullWidthContainer id={HOME} className="pb-5 bg-center bg-no-repeat">
+    <FullWidthContainer
+      id={HOME}
+      className={classnames('pb-5 bg-center bg-no-repeat', parentClasses)}
+    >
       {({ ChildContainer }) => (
         <ChildContainer className="flex items-center justify-center h-full text-center">
           <Card className="w-5/6 md:w-3/5 lg:w-1/2">

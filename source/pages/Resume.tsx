@@ -1,9 +1,9 @@
-import React, { SyntheticEvent } from 'react';
+import React, { FunctionComponent, SyntheticEvent } from 'react';
 
-import MobileDownload from 'ASSETS/icons/cellphone-down-arrow.svg';
+// import MobileDownload from 'ASSETS/icons/cellphone-down-arrow.svg';
 import Download from 'ASSETS/icons/download.svg';
 
-import cvHTML from 'resume/curriculum-vitae.html';
+// import cvHTML from 'resume/curriculum-vitae.html';
 import ResumeHTML from 'resume/resume.html';
 
 import { RESUME } from 'API/constants/page-names';
@@ -41,9 +41,13 @@ const setiFrameHeight = (event: SyntheticEvent) => {
   iFrame.style.height = `${iFrame.contentWindow?.document.body.scrollHeight}px`;
 };
 
-const ResumePage = () => {
+const ResumePage: FunctionComponent<Page> = ({
+  className: parentClasses,
+}: {
+  className: string;
+}) => {
   return (
-    <FullWidthContainer id={RESUME}>
+    <FullWidthContainer id={RESUME} className={parentClasses}>
       {() => (
         <div className="relative w-full">
           <iframe

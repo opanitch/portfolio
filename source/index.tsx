@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 // Styles First
 import './styles/app.css';
 
+import { VideoBackground } from 'Atoms';
 import { SiteFooter, SiteHeader } from 'Components';
 import routeConfig from './route-config';
 
@@ -13,7 +14,8 @@ const renderAnchor = document.getElementById('portfolio');
 renderAnchor &&
   ReactDOM.render(
     <Router>
-      <SiteHeader />
+      <VideoBackground className="z-0" />
+      <SiteHeader className="z-1" />
       <Switch>
         {routeConfig.map((route, index) => {
           const Component = route.component;
@@ -24,12 +26,14 @@ renderAnchor &&
               key={index}
               path={path}
               exact={true}
-              render={(props) => <Component {...props} />}
+              render={(props) => (
+                <Component className="relative z-1" {...props} />
+              )}
             />
           );
         })}
       </Switch>
-      <SiteFooter />
+      <SiteFooter className="z-1" />
     </Router>,
     renderAnchor
   );

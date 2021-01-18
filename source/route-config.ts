@@ -1,11 +1,11 @@
-// import { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent } from 'react';
 
 import * as ROUTES from 'CONSTANTS/routes';
 
 import * as PAGES from 'Pages';
 
 type RouteType = {
-  component: () => JSX.Element;
+  component: FunctionComponent<Page>;
   path: string;
 };
 
