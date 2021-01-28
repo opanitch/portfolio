@@ -2,22 +2,36 @@
   "contact": {
     "description": "Thank you for taking the time to check me out!  For any more information or to check out my other code projects, continue on to my LinkedIn, Github, or send me an mail to start a conversation.",
     "form": {
-      "description": "Thank you for checking me out. Here's an obligatory contact form to get to know me better.",
+      "description": "Here's a contact form to avoid the 'mailto:' hassle!",
       "inputs": {
-        "email": "E-Mail Address",
-        "first-name": "First Name",
-        "last-name": "Last Name",
-        "message": "Additional Message (optional)",
-        "phone-number": "Phone Number"
+        "email": {
+          "label": "E-Mail Address",
+          "placeholder": "username@domain.com"
+        },
+        "first-name": {
+          "label": "First Name",
+          "placeholder": "First Name"
+        },
+        "last-name": {
+          "label": "Last Name",
+          "placeholder": "Last Name"
+        },
+        "message": {
+          "label": "Additional Message (optional)",
+          "placeholder": "Write me..."
+        },
+        "phone-number": {
+          "label": "Phone Number",
+          "placeholder": "(XXX) XXX-XXXX"
+        }
       },
-      "title": "Contact",
       "validation": {
         "email": "EmailAddress@domain.com",
         "names": "a-Z (and most international variations)  , . ' -",
         "phone": "US phone numbers only, please"
       }
     },
-    "title": "Contact title"
+    "title": "Contact"
   },
   "home": {
     "quotes": {
@@ -46,6 +60,7 @@
   },
   "site": {
     "common": {
+      "or": "or",
       "submit": "Submit"
     },
     "navigation": {

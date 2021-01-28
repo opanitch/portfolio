@@ -15,7 +15,7 @@ const FormHeader: FunctionComponent<FormHeaderProps> = ({
   return (
     <div className={parentClasses}>
       {title && <Header className="mb-1" headerLevel={2} title={title} />}
-      {description && <p>{description}</p>}
+      {description && <p className="font-nugo">{description}</p>}
     </div>
   );
 };

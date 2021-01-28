@@ -1,26 +1,41 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import classnames from 'classnames';
+
+import { submitForm, validateForm } from './form-helpers';
 
 import FormFooter from './FormFooter';
 import FormHeader from './FormHeader';
 
-type FormProps = JSX.IntrinsicElements['form'] & {
+export type FormType = JSX.IntrinsicElements['form'];
+
+type FormProps = FormType & {
   description?: string;
   formActions: ReactNode;
   id: string;
   title?: string;
 };
 
-const TextInput: FunctionComponent<FormProps> = ({
+const Form: FunctionComponent<FormProps> = ({
   children,
   className: parentClasses,
   description,
   formActions,
   id,
+  onSubmit = submitForm,
   title,
+  ...props
 }) => {
   return (
-    <form className={classnames('', parentClasses)} id={id}>
+    <form
+      className={parentClasses}
+      id={id}
+      {...props}
+      onSubmit={(e) => {
+        e.preventDefault();
+
+        validateForm(e) && onSubmit(e);
+      }}
+      noValidate
+    >
       {(description || title) && (
         <FormHeader title={title} description={description} />
       )}
@@ -30,4 +45,4 @@ const TextInput: FunctionComponent<FormProps> = ({
   );
 };
 
-export default TextInput;
+export default Form;

@@ -1,19 +1,22 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import classnames from 'classnames';
 
-import { Dictionary } from 'HELPERS/regex';
+import * as REGEX_NAMES from 'CONSTANTS/regex';
+
+import { getRegExp } from 'Components/Form/form-helpers';
 
 import Label from './Label';
 
 type TextInputProps = JSX.IntrinsicElements['input'] & {
   disabled?: boolean;
+  errorText?: string;
   id: string;
   labelPosition?: string;
   labelText?: string;
-  regex?: string;
+  regex?: UnionOf<typeof REGEX_NAMES>;
 };
 
-export enum LABEL_POSITION {
+export enum LabelPosition {
   LEFT = 'LEFT',
   TOP_LEFT = 'TOP_LEFT',
 }
@@ -21,21 +24,26 @@ export enum LABEL_POSITION {
 const TextInput: FunctionComponent<TextInputProps> = ({
   className: parentClasses,
   disabled,
+  errorText,
   id,
-  labelPosition = LABEL_POSITION.TOP_LEFT,
+  labelPosition = LabelPosition.TOP_LEFT,
   labelText,
+  pattern,
   regex,
+  required,
   ...props
 }) => {
-  const regexPattern = (regex && Dictionary[regex]) || regex;
+  const RegExpPattern = pattern || (regex && getRegExp(regex)?.pattern);
+  const [isSelected, setSelected] = useState(false);
+  const [error, showError] = useState(false);
 
   return (
     <div
       className={classnames(
         'flex',
         {
-          ['flex-row']: labelPosition === LABEL_POSITION.LEFT,
-          ['flex-col']: labelPosition === LABEL_POSITION.TOP_LEFT,
+          ['flex-row']: labelPosition === LabelPosition.LEFT,
+          ['flex-col']: labelPosition === LabelPosition.TOP_LEFT,
         },
         parentClasses
       )}
@@ -43,21 +51,40 @@ const TextInput: FunctionComponent<TextInputProps> = ({
       {labelText && (
         <Label
           className={classnames({
-            ['mb-1']: labelPosition === LABEL_POSITION.TOP_LEFT,
+            ['mb-1']: labelPosition === LabelPosition.TOP_LEFT,
           })}
           htmlFor={id}
+          required={required}
           text={labelText}
         />
       )}
       <input
-        id={id}
         className="p-2 border-gray-300 border-1"
         disabled={disabled}
-        pattern={regexPattern}
+        id={id}
+        onBlur={(e) => {
+          e.target.form?.checkValidity();
+        }}
+        onChange={() => error && showError(false)}
+        onFocus={() => setSelected(true)}
+        onInvalid={(e) => {
+          isSelected && showError(true);
+        }}
+        pattern={`${RegExpPattern}`}
+        required={required}
         title="{{@ cms.contact.form.validation.names @}}"
         type="text"
         {...props}
       />
+      {errorText && (
+        <p
+          className={classnames('ml-1 pt-1 text-scale-n2 text-red-700', {
+            ['visually-hidden']: !error,
+          })}
+        >
+          {errorText}
+        </p>
+      )}
     </div>
   );
 };

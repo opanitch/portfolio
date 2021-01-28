@@ -15,7 +15,7 @@ const SiteHeader = ({ className: parentClasses }: { className: string }) => {
     <FullWidthContainer className={classnames('relative', parentClasses)}>
       {({ ChildContainer }) => (
         <ChildContainer>
-          <header className="flex items-end justify-between mb-3 text-white h-100">
+          <header className="flex items-end justify-between mb-4 text-white h-100">
             <Header
               className="mb-2 text-scale-8 font-logo"
               headerLevel={1}
