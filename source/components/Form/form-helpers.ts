@@ -9,7 +9,7 @@ type FormValuesType = {
   [key: string]: string;
 };
 
-type FormInputsType = HTMLInputElement | HTMLTextAreaElement;
+export type FormInputsType = HTMLInputElement | HTMLTextAreaElement;
 
 interface RegexDictionaryEntry {
   flags: string;

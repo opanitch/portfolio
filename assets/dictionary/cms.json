@@ -5,30 +5,35 @@
       "description": "Here's a contact form to avoid the 'mailto:' hassle!",
       "inputs": {
         "email": {
+          "error": "Please enter a correct Email",
           "label": "E-Mail Address",
-          "placeholder": "username@domain.com"
+          "placeholder": "username@domain.com",
+          "validation": "EmailAddress@domain.com"
         },
         "first-name": {
+          "error": "Please enter a correct Name",
           "label": "First Name",
-          "placeholder": "First Name"
+          "placeholder": "First Name",
+          "validation": "a-Z (and most international variations)  , . ' -"
         },
         "last-name": {
+          "error": "Please enter a correct Name",
           "label": "Last Name",
-          "placeholder": "Last Name"
+          "placeholder": "Last Name",
+          "validation": "a-Z (and most international variations)  , . ' -"
         },
         "message": {
+          "error": "",
           "label": "Additional Message (optional)",
-          "placeholder": "Write me..."
+          "placeholder": "Write me...",
+          "validation": ""
         },
         "phone-number": {
+          "error": "Please enter a correct Phone Number",
           "label": "Phone Number",
-          "placeholder": "(XXX) XXX-XXXX"
+          "placeholder": "(XXX) XXX-XXXX",
+          "validation": "US phone numbers only, please"
         }
-      },
-      "validation": {
-        "email": "EmailAddress@domain.com",
-        "names": "a-Z (and most international variations)  , . ' -",
-        "phone": "US phone numbers only, please"
       }
     },
     "title": "Contact"
