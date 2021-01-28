@@ -34,9 +34,7 @@ const Footer = ({ className: parentClasses }: { className: string }) => {
               </nav>
             </div>
             <div className="flex items-end justify-end w-full">
-              <p className="py-2 mt-3 text-scale-n1">
-                &copy; 2021 Oren Panitch
-              </p>
+              <p className="py-2 text-scale-n1">&copy; 2021 Oren Panitch</p>
             </div>
           </footer>
         </ChildContainer>
