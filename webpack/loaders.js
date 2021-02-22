@@ -14,7 +14,7 @@ const dictionaryLoader = {
 const dirList = ['../api', '../public', '../source'];
 const resumeDir = path.resolve(__dirname, '../node_modules/resume-md');
 
-module.exports = () => {
+module.exports = (env) => {
   return [
     {
       test: /\.css$/,

@@ -1,41 +1,43 @@
-const path = require('path');
-
-const aliases = require('./webpack/aliases');
+const devServer = require('./webpack/dev-server');
+const entry = require('./webpack/entry');
 const loaders = require('./webpack/loaders');
+const optimizations = require('./webpack/optimizations');
+const output = require('./webpack/output');
 const plugins = require('./webpack/plugins');
+const resolve = require('./webpack/resolve');
 
-console.log('**********************************************');
-console.log('*********** WEBPACK CONFIG ALIASES ***********');
-console.log(aliases);
-console.log('*********** WEBPACK CONFIG LOADERS ***********');
-console.log(loaders);
-console.log('*********** WEBPACK CONFIG PLUGINS ***********');
-console.log(plugins);
-console.log('************* WEBPACK CONFIG END *************');
-console.log('**********************************************');
+const ENV = process.env.NODE_ENV;
+
+if (ENV !== 'production') {
+  console.log('**********************************************');
+  console.log('********** WEBPACK NODE ENVIRONMENT **********');
+  console.log(ENV);
+  console.log('********** WEBPACK CONFIG DEV SERVER *********');
+  console.log(devServer);
+  console.log('************ WEBPACK CONFIG ENTRY ************');
+  console.log(entry);
+  console.log('*********** WEBPACK CONFIG LOADERS ***********');
+  console.log(loaders);
+  console.log('********* WEBPACK CONFIG OPTIMIZATIONS *******');
+  console.log(optimizations);
+  console.log('*********** WEBPACK CONFIG OUTPUT ************');
+  console.log(output);
+  console.log('*********** WEBPACK CONFIG PLUGINS ***********');
+  console.log(plugins);
+  console.log('*********** WEBPACK CONFIG RESOLVE ***********');
+  console.log(resolve);
+  console.log('************* WEBPACK CONFIG END *************');
+  console.log('**********************************************');
+}
 
 module.exports = {
-  devServer: {
-    contentBase: path.resolve(__dirname, './public/'),
-    // filename: 'mvb.js',
-    historyApiFallback: true,
-    host: '0.0.0.0',
-    port: 3000,
-    // public: 'http://local.opanitch.com:3000'
-    publicPath: '/',
-  },
-  entry: path.resolve(__dirname, './source/index.tsx'),
+  devServer,
+  entry,
   module: {
-    rules: loaders(),
+    rules: loaders(ENV),
   },
-  plugins: plugins(),
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, './public/'),
-  },
-  resolve: {
-    alias: aliases,
-    extensions: ['.html', '.js', '.jsx', '.ts', '.tsx'],
-    modules: [path.resolve(__dirname, 'node_modules')],
-  },
+  plugins: plugins(ENV),
+  optimization: optimizations(ENV),
+  output: output(ENV),
+  resolve,
 };
