@@ -1,27 +1,17 @@
 import React, { FunctionComponent, useState } from 'react';
 import classnames from 'classnames';
 
-import * as REGEX_NAMES from 'CONSTANTS/regex';
-
 import { getRegExp } from 'Components/Form/form-helpers';
 
 import Label from './Label';
-
-type TextInputProps = JSX.IntrinsicElements['input'] & {
-  disabled?: boolean;
-  errorText?: string;
-  id: string;
-  labelPosition?: string;
-  labelText?: string;
-  regex?: UnionOf<typeof REGEX_NAMES>;
-};
+import { InputProps } from './types';
 
 export enum LabelPosition {
   LEFT = 'LEFT',
   TOP_LEFT = 'TOP_LEFT',
 }
 
-const TextInput: FunctionComponent<TextInputProps> = ({
+const TextInput: FunctionComponent<InputProps> = ({
   className: parentClasses,
   disabled,
   errorText,
@@ -73,8 +63,8 @@ const TextInput: FunctionComponent<TextInputProps> = ({
         pattern={`${RegExpPattern}`}
         required={required}
         title="{{@ cms.contact.form.validation.names @}}"
-        type="text"
         {...props}
+        type="text"
       />
       {errorText && (
         <p

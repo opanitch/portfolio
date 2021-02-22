@@ -2,20 +2,14 @@ import React, { FunctionComponent, useState } from 'react';
 import classnames from 'classnames';
 
 import Label from './Label';
-
-type TextInputProps = JSX.IntrinsicElements['textarea'] & {
-  errorText?: string;
-  id: string;
-  labelPosition?: string;
-  labelText?: string;
-};
+import { TextAreaInputProps } from './types';
 
 export enum LABEL_POSITION {
   LEFT = 'LEFT',
   TOP_LEFT = 'TOP_LEFT',
 }
 
-const TextInput: FunctionComponent<TextInputProps> = ({
+const TextInput: FunctionComponent<TextAreaInputProps> = ({
   className: parentClasses,
   errorText,
   id,

@@ -1,34 +1,60 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent } from 'react';
 
-import { submitForm, validateForm } from './form-helpers';
+import * as STATUSES from 'CONSTANTS/status';
+import { validateForm } from './form-helpers';
 
-import FormFooter from './FormFooter';
+import EmptyView from './FormEmpty';
+import FailedView from './FormFailure';
 import FormHeader from './FormHeader';
+// import LoadingView from './FormLoading';
+import SuccessView from './FormSuccess';
+import { FormConfigType, FormStateProps, FormStateSwitcher } from './types';
 
-export type FormType = JSX.IntrinsicElements['form'];
+export const FormSwitcher = <Props extends FormStateProps<any>>({
+  FormEdit,
+  FormEmpty = EmptyView,
+  FormFailure = FailedView,
+  // FormLoading = LoadingView,
+  FormSuccess = SuccessView,
+}: FormStateSwitcher<Props>): FunctionComponent<Props> => {
+  return (props: Props) => {
+    const { status } = props;
 
-type FormProps = FormType & {
-  description?: string;
-  formActions: ReactNode;
-  id: string;
-  title?: string;
+    console.log('FORM SWITCHER');
+    console.log(props);
+    console.log(status);
+
+    switch (status) {
+      case STATUSES.EMPTY:
+        return <FormEmpty {...props} />;
+      case STATUSES.ERROR:
+        return <FormFailure {...props} />;
+      // case STATUSES.LOADING:
+      //   return <FormLoading {...props} />;
+      case STATUSES.READY:
+        return <FormEdit {...props} />;
+      case STATUSES.SUCCESS:
+        return <FormSuccess {...props} />;
+      default:
+        return <div></div>;
+    }
+  };
 };
 
-const Form: FunctionComponent<FormProps> = ({
-  children,
+const Form: FunctionComponent<FormConfigType> = ({
   className: parentClasses,
-  description,
-  formActions,
-  id,
-  onSubmit = submitForm,
-  title,
-  ...props
+  FormBody,
+  status,
+  viewState,
 }) => {
+  const { actions, description, id, title } = viewState;
+  const { onChange, onSubmit } = actions;
+
   return (
     <form
       className={parentClasses}
       id={id}
-      {...props}
+      onChange={onChange}
       onSubmit={(e) => {
         e.preventDefault();
 
@@ -39,8 +65,7 @@ const Form: FunctionComponent<FormProps> = ({
       {(description || title) && (
         <FormHeader title={title} description={description} />
       )}
-      <div className="my-3">{children}</div>
-      {formActions && <FormFooter>{formActions}</FormFooter>}
+      <FormBody status={status} viewState={viewState} />
     </form>
   );
 };

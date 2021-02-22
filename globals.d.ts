@@ -8,6 +8,10 @@ declare module '*.svg' {
   export default ReactComponent;
 }
 
-declare type Page = JSX.IntrinsicElements['div'] & {
+declare type DivType = JSX.IntrinsicElements['div'];
+
+declare type FormType = JSX.IntrinsicElements['form'];
+
+declare type Page = DivType & {
   className: string;
 };
