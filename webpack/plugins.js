@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -38,7 +39,15 @@ module.exports = (env) => {
       ],
     }),
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      chunks: ['main'],
+      inject: true,
+      minify: {
+        collapseInlineTagWhitespace: true,
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+      },
+      template: path.resolve(__dirname, '../index.html'),
       title: 'O.P Portfolio',
     }),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),

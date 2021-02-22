@@ -14,6 +14,16 @@
     "type": "git",
     "url": "git+https://github.com/opanitch/portfolio.git"
   },
+  "scripts": {
+    "clean-build-folder": "ls public/ | grep -v index.html | xargs -I{} rm -rf public/{}",
+    "build": "npm run clean-build-folder && postcss --use postcss-import --use tailwindcss -o ./public/assets/styles.css ./source/styles/app.css && NODE_ENV=production webpack --config ./webpack.config.js",
+    "build:dev": "npm run clean-build-folder && postcss --use postcss-import --use tailwindcss -o ./public/assets/styles.css ./source/styles/app.css && NODE_ENV=development webpack --config ./webpack.config.js",
+    "cleaninstall": "rm -rf node_modules/ && rm package-lock.json && npm cache clean --force && npm i",
+    "start": "NODE_ENV=development webpack serve --config ./webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update": "npm ci",
+    "update:deps": "rm -rf node_modules/ && npm cache clean --force && npm i"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
@@ -76,13 +86,5 @@
     "react-router-dom": "^5.2.0",
     "resume-md": "git+https://github.com/opanitch/resume.md#2.6.1",
     "schema-utils": "^3.0.0"
-  },
-  "scripts": {
-    "build": "ls public/ | grep -v index.html | xargs -I{} rm -rf public/{} && postcss --use postcss-import --use tailwindcss -o ./public/assets/styles.css ./source/styles/app.css && NODE_ENV=production webpack --config ./webpack.config.js --mode production",
-    "cleaninstall": "rm -rf node_modules/ && rm package-lock.json && npm cache clean --force && npm i",
-    "start": "webpack serve --config ./webpack.config.js --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "update": "npm ci",
-    "update:deps": "rm -rf node_modules/ && npm cache clean --force && npm i"
   }
 }
