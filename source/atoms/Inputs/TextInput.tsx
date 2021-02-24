@@ -64,7 +64,6 @@ const TextInput: FunctionComponent<InputProps> = ({
         required={required}
         title="{{@ cms.contact.form.validation.names @}}"
         {...props}
-        type="text"
       />
       {errorText && (
         <p

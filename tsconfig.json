@@ -52,6 +52,7 @@
       "Containers/*": ["source/containers/*"],
       "Containers": ["source/containers"],
       "HELPERS/*": ["api/helpers/*"],
+      "Forms/*": ["source/components/Form/Forms/*"],
       "Pages/*": ["source/pages/*"],
       "Pages": ["source/pages"],
       "resume/*": ["node_modules/resume-md/resume/*"]

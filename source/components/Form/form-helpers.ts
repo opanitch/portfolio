@@ -1,7 +1,5 @@
 import { SyntheticEvent } from 'react';
-import { send as emailSend } from 'emailjs-com';
 
-import * as EMAILJS from 'CONSTANTS/emailjs';
 import * as NODE_NAMES from 'CONSTANTS/node-names';
 import * as REGEX_NAMES from 'CONSTANTS/regex';
 
@@ -65,7 +63,7 @@ const getFormInputs = (form: HTMLFormElement): Element[] => {
   return formInputs;
 };
 
-const getFormValues = (form: HTMLFormElement): FormValuesType => {
+export const getFormValues = (form: HTMLFormElement): FormValuesType => {
   const formInputs = getFormInputs(form) as FormInputsType[];
 
   // Construct Object of form values based on { `id`: `value` } pairing.
@@ -87,37 +85,6 @@ export const getRegExp = (
 //   console.log('INVALID helper');
 //   console.log(event);
 // };
-
-export const submitForm = (event: SyntheticEvent): void => {
-  const form = event.target as HTMLFormElement;
-  const {
-    comment,
-    emailAddress,
-    firstName,
-    lastName,
-    phoneNumber,
-  } = getFormValues(form);
-  const templateVariables = {
-    from_name: `${firstName} ${lastName}`,
-    message: comment,
-    phone_number: phoneNumber,
-    reply_to: emailAddress,
-  };
-
-  // Send the email using EmailJS
-  emailSend(EMAILJS.SERVICE_ID, EMAILJS.DEFAULT_TEMPLATE, templateVariables)
-    // On Success
-    .then((res) => {
-      console.log('Email successfully sent!');
-    })
-    // Handle errors here however you like, or use a React error boundary
-    .catch((err) =>
-      console.error(
-        'Oh well, you failed. Here some thoughts on the error that occured:',
-        err
-      )
-    );
-};
 
 // export const validateField = (
 //   field: EventTarget & (HTMLInputElement | HTMLTextAreaElement)

@@ -13,7 +13,7 @@ export type InputProps = JSX.IntrinsicElements['input'] & {
   labelPosition?: string;
   labelText?: string;
   regex?: UnionOf<typeof REGEX_NAMES>;
-  type?: 'text' | 'number';
+  type: 'text' | 'email' | 'tel';
 };
 
 export type TextAreaInputProps = JSX.IntrinsicElements['textarea'] & {
