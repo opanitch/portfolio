@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
@@ -10,7 +10,9 @@ import { Header, Link, List, ListItem } from 'Atoms';
 
 import { FullWidthContainer } from 'Components';
 
-const SiteHeader = ({ className: parentClasses }: { className: string }) => {
+const SiteHeader: FunctionComponent<DivType> = ({
+  className: parentClasses,
+}) => {
   return (
     <FullWidthContainer className={classnames('relative', parentClasses)}>
       {({ ChildContainer }) => (

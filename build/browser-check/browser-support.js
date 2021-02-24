@@ -1,8 +1,8 @@
-import { BROWSER_TYPES } from '../global/environments';
+const { BROWSER_TYPES } = require('../global/environments');
 
 // these imports are now generated during a webpack build virtually
-import supportedWebBrowsers from '../../SUPPORTED_WEB_BROWSERS';
-import supportedMobileBrowsers from '../../SUPPORTED_MOBILE_BROWSERS';
+const supportedWebBrowsers = require('../../SUPPORTED_WEB_BROWSERS');
+const supportedMobileBrowsers = require('../../SUPPORTED_MOBILE_BROWSERS');
 
 const supportedBrowserRegexp = {
   [BROWSER_TYPES.MOBILE]: supportedMobileBrowsers,
@@ -28,7 +28,7 @@ const isBrowserSupported = (browserType, userAgent) =>
  * * Test if Browser User Agent is Supported.
  * * Redirect to designated Unsupported Page if not supported
  */
-export const redirectIfUnsupported = (userAgent) => {
+module.exports.redirectIfUnsupported = (userAgent) => {
   const browserType = isMobileBrowser(userAgent)
     ? BROWSER_TYPES.MOBILE
     : BROWSER_TYPES.WEB;
@@ -43,5 +43,3 @@ export const redirectIfUnsupported = (userAgent) => {
     window.location.replace(browserTargets.default);
   }
 };
-
-export default redirectIfUnsupported;

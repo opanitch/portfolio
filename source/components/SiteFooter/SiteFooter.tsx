@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
@@ -8,7 +8,7 @@ import { List, ListItem } from 'Atoms';
 
 import { FullWidthContainer } from 'Components';
 
-const Footer = ({ className: parentClasses }: { className: string }) => {
+const Footer: FunctionComponent<DivType> = ({ className: parentClasses }) => {
   return (
     <FullWidthContainer className={classnames('relative', parentClasses)}>
       {({ ChildContainer }) => (
