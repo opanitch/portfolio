@@ -7,8 +7,10 @@ const performance = require('./webpack/performance');
 const plugins = require('./webpack/plugins');
 const resolve = require('./webpack/resolve');
 
+const { ENVIRONMENTS } = require('./build/global/environments');
+
 const ENV = process.env.NODE_ENV;
-const isProduction = ENV === 'production';
+const isProduction = ENV === ENVIRONMENTS.PRODUCTION;
 
 console.log('**********************************************');
 console.log('********** WEBPACK NODE ENVIRONMENT **********');
