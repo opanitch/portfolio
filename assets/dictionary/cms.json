@@ -34,7 +34,8 @@
           "placeholder": "(XXX) XXX-XXXX",
           "validation": "US phone numbers only, please"
         }
-      }
+      },
+      "title": "Contact Form"
     },
     "title": "Contact"
   },
