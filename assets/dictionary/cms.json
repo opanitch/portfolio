@@ -67,7 +67,20 @@
   "site": {
     "common": {
       "or": "or",
+      "reset": "Reset",
       "submit": "Submit"
+    },
+    "form-defaults": {
+      "error": {
+        "description": "This is a Generic Error State",
+        "message": "Form submission was NOT successful!",
+        "title": "Error"
+      },
+      "success": {
+        "description": "This is a Generic Success State",
+        "message": "Form submission was successful!",
+        "title": "Success"
+      }
     },
     "navigation": {
       "contact": "Contact",

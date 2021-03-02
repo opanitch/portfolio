@@ -12,6 +12,7 @@ const Form: FunctionComponent<FormConfigType> = ({
   id,
   onChange,
   onSubmit = (event) => {
+    // This here to catch any forms without submission handlers
     console.log('DEFAULT SUBMIT');
     console.log(event);
   },

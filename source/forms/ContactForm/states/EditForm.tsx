@@ -6,18 +6,16 @@ import React, {
 } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-import { TextAreaInput, TextInput } from 'Atoms';
-
 import * as REGEX_NAMES from 'CONSTANTS/regex';
 import { GOOGLE_RECAPTCHA_KEY } from 'API/data/contact/constants';
 import { sendEmail } from 'API/data/contact/send-email';
 import { SendEmailAction } from 'API/data/contact/types';
 
-import { FormStateProps } from 'Components/Form/types';
+import { TextAreaInput, TextInput } from 'Atoms';
 import Button, { ButtonType } from 'Atoms/Button/Button';
-import { FormInputsType } from 'Components/Form/form-helpers';
+import { FormInputsType, getFormValues } from 'Components/Form/form-helpers';
 import Form from 'Components/Form/Form';
-import { getFormValues } from 'Components/Form/form-helpers';
+import { FormStateProps } from 'Components/Form/types';
 
 import { ContactFormViewType } from '../types';
 
@@ -49,7 +47,10 @@ const EditContactForm: FunctionComponent<
       {({ FormBody, FormFooter, FormHeader }) => (
         <>
           {title && <FormHeader title={title} />}
-          <FormBody className="mt-3" description={description}>
+          <FormBody
+            className="mt-3"
+            description={`{{@ cms.contact.form.description @}}`}
+          >
             <div className="flex flex-col mb-2 md:flex-row md:justify-between">
               <TextInput
                 className="w-full mb-2 md:w-1/2 md:pr-1"

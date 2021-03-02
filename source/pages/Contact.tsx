@@ -68,7 +68,6 @@ const ContactPage: FunctionComponent<Page> = ({ className: parentClasses }) => {
             <Card className="w-5/6 md:w-1/2 md:ml-1">
               <ContactForm
                 className=""
-                description="{{@ cms.contact.form.description @}}"
                 id="contact-me"
                 status={formStatus}
                 title="{{@ cms.contact.form.title @}}"
