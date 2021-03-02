@@ -51,8 +51,10 @@
       "CONSTANTS/*": ["api/constants/*"],
       "Containers/*": ["source/containers/*"],
       "Containers": ["source/containers"],
+      "Forms": ["source/forms"],
+      "Forms/*": ["source/forms/*"],
       "HELPERS/*": ["api/helpers/*"],
-      "Forms/*": ["source/components/Form/Forms/*"],
+      "HOOKS/*": ["api/hooks/*"],
       "Pages/*": ["source/pages/*"],
       "Pages": ["source/pages"],
       "resume/*": ["node_modules/resume-md/resume/*"]

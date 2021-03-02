@@ -4,14 +4,15 @@ module.exports = {
   // API
   API: path.resolve(__dirname, '../api'),
   CONFIG: path.resolve(__dirname, '../api/config'),
-  DATA: path.resolve(__dirname, '../api/data'),
   CONSTANTS: path.resolve(__dirname, '../api/constants'),
+  DATA: path.resolve(__dirname, '../api/data'),
   HELPERS: path.resolve(__dirname, '../api/helpers'),
+  HOOKS: path.resolve(__dirname, '../api/hooks'),
 
   // Application
   Atoms: path.resolve(__dirname, '../source/atoms'),
   Components: path.resolve(__dirname, '../source/components'),
-  Forms: path.resolve(__dirname, '../source/components/Form/Forms'),
+  Forms: path.resolve(__dirname, '../source/forms'),
   Pages: path.resolve(__dirname, '../source/pages'),
 
   // Assets
