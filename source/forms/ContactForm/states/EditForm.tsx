@@ -21,7 +21,7 @@ import { ContactFormViewType } from '../types';
 
 const EditContactForm: FunctionComponent<
   FormStateProps<ContactFormViewType>
-> = ({ className: parentClasses, description, id, title }) => {
+> = ({ className: parentClasses, id, title }) => {
   const [isValid, setValidity] = useState(false);
   const [passRecaptcha, setRecaptcha] = useState(false);
   const canSubmit = isValid && passRecaptcha;
