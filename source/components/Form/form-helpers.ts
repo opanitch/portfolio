@@ -1,5 +1,3 @@
-import { SyntheticEvent } from 'react';
-
 import * as NODE_NAMES from 'CONSTANTS/node-names';
 import * as REGEX_NAMES from 'CONSTANTS/regex';
 
@@ -41,17 +39,17 @@ export const createRegExp = (key: string, flags = ''): RegExp => {
   return RegEx && new RegExp(RegEx.pattern, RegEx.flags);
 };
 
-// const getFormDefaultValues = (form: HTMLFormElement) => {
-//   const formInputs = getFormInputs(form) as FormInputsType[];
+export const getFormDefaultValues = (form: HTMLFormElement): FormValuesType => {
+  const formInputs = getFormInputs(form) as FormInputsType[];
 
-//   // Construct Object of form values based on { `id`: `value` } pairing.
-//   return formInputs.reduce(
-//     (values, input) => ({ ...values, [input.id]: input.defaultValue }),
-//     {}
-//   );
-// };
+  // Construct Object of form values based on { `id`: `value` } pairing.
+  return formInputs.reduce(
+    (values, input) => ({ ...values, [input.id]: input.defaultValue }),
+    {}
+  );
+};
 
-const getFormInputs = (form: HTMLFormElement): Element[] => {
+export const getFormInputs = (form: HTMLFormElement): Element[] => {
   const formInputs = Array.from(form.elements).filter((element) => {
     // Filter out all elements that are not Input Types
     return (
@@ -79,42 +77,4 @@ export const getRegExp = (
   const RegEx = RegexDictionary[entryName];
 
   return { ...RegEx };
-};
-
-// export const handleInvalid = (event: SyntheticEvent): void => {
-//   console.log('INVALID helper');
-//   console.log(event);
-// };
-
-// export const validateField = (
-//   field: EventTarget & (HTMLInputElement | HTMLTextAreaElement)
-// ): void => {
-//   console.log('VALIDATE FIELD helper');
-//   const {
-//     defaultValue,
-//     type: fieldType,
-//     pattern,
-//     required,
-//     validity,
-//     value,
-//   } = field;
-
-//   console.log(`required: ${required}`);
-//   console.log(`validity: ${validity.valid}`);
-//   console.log(`value: ${value}`);
-
-//   const isValid = validity.valid;
-
-//   if (required) {
-//     // isValid = value !== defaultValue;
-//   }
-
-//   console.log(isValid);
-//   console.log(`******************************************************`);
-// };
-
-export const validateForm = (event: SyntheticEvent): boolean => {
-  const form = event.target as HTMLFormElement;
-
-  return form.checkValidity();
 };

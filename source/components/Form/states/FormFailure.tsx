@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { FormProps, FormStateProps } from './types';
+import { FormProps, FormStateProps } from '../types';
 
 const FormFailure: FunctionComponent<FormStateProps> = ({
   viewState,

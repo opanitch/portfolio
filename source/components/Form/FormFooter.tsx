@@ -1,13 +1,22 @@
 import React, { FunctionComponent } from 'react';
 import classnames from 'classnames';
 
-const FormFooter: FunctionComponent<DivType> = ({
+import { FormSection } from './types';
+
+const FormFooter: FunctionComponent<FormSection> = ({
   children,
   className: parentClasses,
-}) => {
-  return (
-    <div className={classnames('mt-3 flex', parentClasses)}>{children}</div>
-  );
-};
+  ...props
+}) => (
+  <div
+    className={classnames(
+      'mt-3 flex flex-row items-center justify-between',
+      parentClasses
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+);
 
 export default FormFooter;

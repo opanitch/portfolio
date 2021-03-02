@@ -15,9 +15,9 @@ const TextInput: FunctionComponent<TextAreaInputProps> = ({
   id,
   labelPosition = LABEL_POSITION.TOP_LEFT,
   labelText,
+  onChange,
   ...props
 }) => {
-  const [isSelected, setSelected] = useState(false);
   const [error, showError] = useState(false);
 
   return (
@@ -46,13 +46,10 @@ const TextInput: FunctionComponent<TextAreaInputProps> = ({
       <textarea
         id={id}
         className="p-2 border-gray-300 border-1"
-        onBlur={(e) => {
-          e.target.form?.checkValidity();
-          setSelected(false);
-        }}
-        onChange={() => error && showError(false)}
-        onFocus={() => setSelected(true)}
-        onInvalid={() => isSelected && showError(true)}
+        // Only validate field onBlur
+        onBlur={(event) => showError(!event.target.checkValidity())}
+        // Handle custom event if it exists
+        onChange={onChange}
         spellCheck={true}
         {...props}
       />

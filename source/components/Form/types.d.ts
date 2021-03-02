@@ -1,34 +1,58 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 
 import * as STATUSES from 'CONSTANTS/status';
 
-import { InputProps, TextAreaInputProps } from 'Atoms/Inputs/types';
+import {
+  InputProps,
+  NumberInputProps,
+  TextAreaInputProps,
+} from 'Atoms/Inputs/types';
 
-import FormEmpty from './FormEmpty';
-import FormFailure from './FormFailure';
-// import FormLoading from './FormLoading';
-import FormSuccess from './FormSuccess';
+import FormEmpty from './states/FormEmpty';
+import FormFailure from './states/FormFailure';
+// import FormLoading from './states/FormLoading';
+import FormSuccess from './states/FormSuccess';
 
+// Form Config
 export interface FormConfigType extends FormType {
-  FormBody: FunctionComponent<FormStateProps<any>>;
-  status: string;
-  viewState: FormProps;
+  children: (args: RenderArguments) => ReactNode;
+  id: string;
 }
 
+// This isn't currently used - TODO: needs update
 export interface FormProps {
-  actions: {
-    onChange: any;
-    onSubmit: any;
-  };
+  inputs?: Record<string, InputProps | NumberInputProps | TextAreaInputProps>;
+  validation?: Record<string, any>;
+}
+
+// Form Structure
+interface RenderArguments {
+  FormBody: FunctionComponent<FormBodyProps>;
+  FormFooter: FunctionComponent<FormFooterProps>;
+  FormHeader: FunctionComponent<FormHeaderProps>;
+}
+
+export type FormBodyProps = FormSection & {
+  description?: string;
+};
+
+export type FormFooterProps = FormSection;
+
+export interface FormHeaderProps extends FormSection {
+  title: string;
+}
+
+export interface FormSection extends DivType {
+  children?: ReactNode;
+}
+
+// Form State
+export interface FormStateProps<P = FormProps> extends DivType {
   description?: string;
   id: string;
-  inputs?: Record<string, InputProps | TextAreaInputProps>;
-  title?: string;
-}
-
-export interface FormStateProps<P = FormProps> {
   status: string;
-  viewState: P extends FormProps ? P : never;
+  title?: string;
+  viewState?: P extends FormProps ? P : never;
 }
 
 export interface FormStateSwitcher<P> {
@@ -38,5 +62,3 @@ export interface FormStateSwitcher<P> {
   // FormLoading?: FunctionComponent<P> | typeof FormLoading;
   FormSuccess?: FunctionComponent<P> | typeof FormSuccess;
 }
-
-export type FormStatuses = UnionOf<typeof STATUSES>;

@@ -1,24 +1,13 @@
-import { Dispatch, SyntheticEvent } from 'react';
 import { send } from 'emailjs-com';
 
-import * as EMAILJS from 'CONSTANTS/emailjs';
+import * as EMAILJS from 'API/data/contact/constants';
 import * as STATUSES from 'CONSTANTS/status';
+import { createFormStatusEvent } from 'HOOKS/forms';
 
-import { getFormValues } from 'Components/Form/form-helpers';
-import { FormStatuses } from 'Components/Form/types';
+import { SendEmailAction } from './types';
 
-export const sendEmail = (
-  event: SyntheticEvent,
-  callback: Dispatch<FormStatuses>
-): void => {
-  const form = event.target as HTMLFormElement;
-  const {
-    comment,
-    emailAddress,
-    firstName,
-    lastName,
-    phoneNumber,
-  } = getFormValues(form);
+export const sendEmail = (values: SendEmailAction): void => {
+  const { comment, emailAddress, firstName, lastName, phoneNumber } = values;
   const templateVariables = {
     from_name: `${firstName} ${lastName}`,
     message: comment,
@@ -32,7 +21,7 @@ export const sendEmail = (
     .then((res) => {
       console.log('Email successfully sent!');
       console.log(res);
-      callback(STATUSES.SUCCESS);
+      window.dispatchEvent(createFormStatusEvent(STATUSES.SUCCESS));
     })
     // Handle errors here however you like, or use a React error boundary
     .catch((err) => {
@@ -41,6 +30,6 @@ export const sendEmail = (
         'Oh well, you failed. Here some thoughts on the error that occured:',
         err
       );
-      callback(STATUSES.ERROR);
+      window.dispatchEvent(createFormStatusEvent(STATUSES.ERROR));
     });
 };

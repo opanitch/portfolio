@@ -13,18 +13,19 @@ export enum LabelPosition {
 
 const TextInput: FunctionComponent<InputProps> = ({
   className: parentClasses,
-  disabled,
+  disabled = false,
   errorText,
   id,
   labelPosition = LabelPosition.TOP_LEFT,
   labelText,
+  onChange,
   pattern,
   regex,
-  required,
+  required = false,
+  type = 'text',
   ...props
 }) => {
   const RegExpPattern = pattern || (regex && getRegExp(regex)?.pattern);
-  const [isSelected, setSelected] = useState(false);
   const [error, showError] = useState(false);
 
   return (
@@ -52,17 +53,14 @@ const TextInput: FunctionComponent<InputProps> = ({
         className="p-2 border-gray-300 border-1"
         disabled={disabled}
         id={id}
-        onBlur={(e) => {
-          e.target.form?.checkValidity();
-        }}
-        onChange={() => error && showError(false)}
-        onFocus={() => setSelected(true)}
-        onInvalid={(e) => {
-          isSelected && showError(true);
-        }}
+        // Only validate field onBlur
+        onBlur={(event) => showError(!event.target.checkValidity())}
+        // Handle custom event if it exists
+        onChange={onChange}
         pattern={`${RegExpPattern}`}
         required={required}
         title="{{@ cms.contact.form.validation.names @}}"
+        type={type}
         {...props}
       />
       {errorText && (
