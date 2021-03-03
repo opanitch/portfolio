@@ -36,6 +36,7 @@ console.log('**********************************************');
 
 module.exports = {
   devServer,
+  devtool: !isProduction ? 'eval-cheap-module-source-map' : false,
   entry,
   mode: ENV,
   module: {
@@ -46,4 +47,5 @@ module.exports = {
   optimization: optimizations(ENV),
   output: output(ENV),
   resolve,
+  target: 'web',
 };

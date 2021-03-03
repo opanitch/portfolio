@@ -1,12 +1,12 @@
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
+// Documentation: https://webpack.js.org/configuration/optimization/
 module.exports = (env) => ({
-  minimizer: [
-    // This will mangle our output to reduce size
-    // new UglifyJSPlugin({
-    //   parallel: true,
-    // }),
-  ],
+  chunkIds: env === 'production' ? 'total-size' : 'named',
+  emitOnErrors: env === 'development',
+  mangleExports: env === 'production' ? 'size' : false,
+  minimize: env === 'production',
+  minimizer: [],
+  moduleIds: env === 'production' ? 'size' : 'named',
+  nodeEnv: env,
   splitChunks: {
     minChunks: 2,
     cacheGroups: {
