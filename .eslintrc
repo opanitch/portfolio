@@ -55,7 +55,7 @@
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".js", ".ts", ".tsx"]
       }
     ],
     "react-hooks/rules-of-hooks": "error",

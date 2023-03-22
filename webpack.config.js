@@ -7,7 +7,7 @@ const performance = require('./webpack/performance');
 const plugins = require('./webpack/plugins');
 const resolve = require('./webpack/resolve');
 
-const { ENVIRONMENTS } = require('./build/global/environments');
+const { BROWSER_TYPES, ENVIRONMENTS } = require('./build/global/environments');
 
 const ENV = process.env.NODE_ENV;
 const isProduction = ENV === ENVIRONMENTS.PRODUCTION;
@@ -47,5 +47,5 @@ module.exports = {
   optimization: optimizations(ENV),
   output: output(ENV),
   resolve,
-  target: 'web',
+  target: BROWSER_TYPES.WEB,
 };
