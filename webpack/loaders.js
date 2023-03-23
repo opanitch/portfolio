@@ -49,11 +49,15 @@ module.exports = (env) => {
     {
       test: /\.(js|ts)x?$/,
       exclude: /node_modules/,
-      use: ['babel-loader', 'eslint-loader'],
+      use: ['babel-loader'],
     },
     {
       test: /\.svg$/i,
       use: ['@svgr/webpack'],
+    },
+    {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      use: ['img-loader'],
     },
     {
       test: /\.(png|jpe?g|gif|ico)$/i,

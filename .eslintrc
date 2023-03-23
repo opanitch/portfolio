@@ -7,7 +7,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:compat/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint",
     "plugin:tailwind/recommended"

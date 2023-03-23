@@ -2,9 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const HtmlWebpackInlinePlugin = require('html-webpack-inline-plugin').default;
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const VirtualModulesPlugin = require('webpack-virtual-modules');
 
 const getBrowserRegexp = require('./browser-regexp');
@@ -16,6 +16,8 @@ module.exports = (env) => {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
+    // ESLint
+    new ESLintPlugin(),
     // Copy assets to build folder
     new CopyPlugin({
       patterns: [
@@ -78,7 +80,6 @@ module.exports = (env) => {
       template: path.resolve(__dirname, '../unsupported-browser.html'),
       title: 'Unsupported | O.P Portfolio',
     }),
-    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new CompressionPlugin({
       test: /\.(js|s?css|html|svg|json)$/,
     }),
