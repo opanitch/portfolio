@@ -1,0 +1,52 @@
+# Dependencies
+node/
+node_modules/
+
+# Production
+assets/
+build/
+dist/
+public/
+
+# TypeScript
+tsbuildinfo/
+
+# Shell script (Prettier requires additional plugin for shell script)
+*.sh
+
+# Docker (Prettier has trouble parsing Docker files)
+docker/
+Dockerfile
+
+# Assets
+*.svg
+*.png
+*.ico
+*.ttf
+
+# Ignore files (Prettier has trouble parsing files without extension)
+.dockerignore
+.eslintignore
+.gitignore
+.licenseheaderignore
+.prettierignore
+.stylelintignore
+
+# RC files (Prettier has trouble parsing files without extension)
+.npmrc
+.nvmrc
+
+# License text (Prettier has trouble parsing files without extension)
+LICENSE
+
+# Jest
+
+# webpack
+webpack/
+
+# OS
+Thumbs.db
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes

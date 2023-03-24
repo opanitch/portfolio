@@ -12,6 +12,7 @@ module.exports = {
   // Application
   Atoms: path.resolve(__dirname, '../source/atoms'),
   Components: path.resolve(__dirname, '../source/components'),
+  Containers: path.resolve(__dirname, '../source/containers'),
   Forms: path.resolve(__dirname, '../source/forms'),
   Pages: path.resolve(__dirname, '../source/pages'),
 

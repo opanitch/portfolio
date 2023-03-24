@@ -1,14 +1,15 @@
 {
   "env": {
-    "amd": true,
     "browser": true,
-    "es6": false
+    "es2020": true,
+    "node": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
+    "plugin:react/recommended",
     "plugin:tailwind/recommended"
   ],
   "overrides": [
@@ -17,54 +18,121 @@
         "es6": true,
         "node": true
       },
-      "files": ["*.js", "build/**", "webpack/**"]
+      "files": [
+        "*.js",
+        "build/**",
+        "webpack/**"
+      ]
     }
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "html",
-    "prettier",
     "react",
-    "@typescript-eslint",
     "react-hooks",
+    "@typescript-eslint",
     "tailwind"
   ],
   "rules": {
-    "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+    "eqeqeq": [
+      "error",
+      "smart"
+    ],
     "no-useless-return": "error",
     "padding-line-between-statements": [
       "error",
-      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": "*"
+      },
       {
         "blankLine": "any",
-        "prev": ["const", "let", "var"],
-        "next": ["const", "let", "var"]
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": [
+          "const",
+          "let",
+          "var"
+        ]
       },
-      { "blankLine": "always", "prev": "*", "next": "return" }
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      }
     ],
-    "prettier/prettier": ["error"],
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
+    "prettier/prettier": [
+      "error"
+    ],
+    "react/jsx-boolean-value": [
+      "error",
+      "never"
+    ],
+    "react/jsx-curly-brace-presence": [
+        "error",
+        "never"
+    ],
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [".js", ".ts", ".tsx"]
+        "extensions": [
+          ".js",
+          ".ts",
+          ".tsx"
+        ]
       }
     ],
-    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-pascal-case": ["error"],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true
+      }
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
     "react-hooks/exhaustive-deps": "warn",
-    "sort-imports": ["error", {
-      "ignoreCase": false,
-      "ignoreDeclarationSort": true,
-      "ignoreMemberSort": false,
-      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
-    }],
+    "react-hooks/rules-of-hooks": "error",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ]
+      }
+    ],
+    "spaced-comment": [
+      "error",
+      "always"
+    ],
     "tailwind/class-order": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

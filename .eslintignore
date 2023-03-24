@@ -1,0 +1,26 @@
+# GitHub
+.github/
+
+# VSCode
+.vscode/
+
+# Dependencies
+node/
+node_modules/
+
+# Production
+assets/
+build/
+dist/
+public/
+
+# TypeScript
+tsbuildinfo/
+
+# Docker
+docker/
+Dockerfile
+
+# webpack (ESLint rules don't agree with how these configs are written)
+webpack.config.js
+webpack/
