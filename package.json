@@ -87,7 +87,7 @@
     "react-dom": "17.0.2",
     "react-google-recaptcha": "2.1.0",
     "react-router-dom": "5.3.4",
-    "resume-md": "git+https://github.com/opanitch/resume.md#2.6.1",
+    "resume-md": "git+https://github.com/opanitch/resume.md#2.7.0",
     "schema-utils": "3.1.1"
   }
 }
