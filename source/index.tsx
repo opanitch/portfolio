@@ -7,13 +7,17 @@ import { createBrowserHistory } from 'history';
 import './styles/app.css';
 
 import App from './app';
+import { ScrollToTopProvider } from 'Components/scroll-to-top-provider/scroll-to-top-provider.component';
+import { Position } from 'Components/scroll-to-top-provider/scroll-to-top-provider.interfaces';
 
 const browserHistory = createBrowserHistory();
 
 ReactDOM.render(
   <StrictMode>
     <Router history={browserHistory}>
-      <App />
+      <ScrollToTopProvider position={Position.RIGHT}>
+        <App />
+      </ScrollToTopProvider>
     </Router>
   </StrictMode>,
   document.getElementById('portfolio')
