@@ -5,24 +5,22 @@ const colors = require('tailwindcss/colors');
   A function that returns a Tailwind plugin that will add
   CSS based on Tailwind config keys.
 */
-const addUtilitiesFromConfig = (name, classPrefix = `${name}-`) => ({
-  addUtilities,
-  config,
-  e,
-}) => {
-  const settings = config(`theme.${name}`, {});
+const addUtilitiesFromConfig =
+  (name, classPrefix = `${name}-`) =>
+  ({ addUtilities, config, e }) => {
+    const settings = config(`theme.${name}`, {});
 
-  Object.keys(settings).forEach((setting) => {
-    const className = e(`${classPrefix}${setting}`);
+    Object.keys(settings).forEach((setting) => {
+      const className = e(`${classPrefix}${setting}`);
 
-    addUtilities(
-      {
-        [`.${className}`]: settings[setting],
-      },
-      config(`variants.${name}`, {})
-    );
-  });
-};
+      addUtilities(
+        {
+          [`.${className}`]: settings[setting],
+        },
+        config(`variants.${name}`, {})
+      );
+    });
+  };
 
 /*
   Translates a px to rem with a default base of 16.
@@ -75,20 +73,23 @@ module.exports = {
 
     branding: {
       white: '#ffffff',
-      'cool-grey-1': '#fbfcfc',
-      'cool-grey-2': '#f2f4f5',
-      'cool-grey-3': '#eef1f3',
-      'cool-grey-4': '#ebeef0',
-      'cool-grey-5': '#e6eaed',
-      'cool-grey-6': '#dde2e6',
-      'cool-grey-7': '#c7cdd2',
-      'cool-grey-8': '#b1b9bf',
-      'cool-grey-9': '#9ba4aa',
-      'cool-grey-10': '#868f96',
-      'cool-grey-11': '#646a70',
-      'cool-grey-12': '#44484c',
-      'cool-grey-13': '#2a2c2d',
-      'cool-grey-14': '#191919',
+      'grey-1': '#fbfcfc',
+      'grey-2': '#f2f4f5',
+      'grey-3': '#eef1f3',
+      'grey-4': '#ebeef0',
+      'grey-5': '#e6eaed',
+      'grey-6': '#dde2e6',
+      'grey-7': '#c7cdd2',
+      'grey-8': '#b1b9bf',
+      'grey-9': '#9ba4aa',
+      'grey-10': '#868f96',
+      'grey-11': '#646a70',
+      'grey-12': '#44484c',
+      'grey-13': '#2a2c2d',
+      'grey-14': '#212121',
+      'sky-blue': '#2196f3',
+      'sky-blue-dark': '#1769AA',
+      'sky-blue-light': '#4DABF5',
       black: '#000000',
     },
 
@@ -297,7 +298,7 @@ module.exports = {
         white: theme('branding.white'),
 
         dark: theme('branding.smolder'),
-        medium: theme('branding.cool-grey-2'),
+        medium: theme('branding.grey-2'),
         light: theme('branding.white'),
 
         positive: theme('branding.sea-foam'),
@@ -305,32 +306,32 @@ module.exports = {
         negative: theme('branding.haute'),
 
         primary: {
-          default: theme('branding.blue-sky'),
-          hover: theme('branding.blue-genes'),
-          select: theme('branding.blue-genes'),
+          default: theme('branding.sky-blue'),
+          hover: theme('branding.sky-blue-light'),
+          select: theme('branding.sky-blue-dark'),
         },
 
         secondary: {
-          default: theme('branding.cool-grey-1'),
-          hover: theme('branding.cool-grey-10'),
+          default: theme('branding.grey-1'),
+          hover: theme('branding.grey-10'),
         },
 
         grey: {
           0: theme('branding.white'),
-          1: theme('branding.cool-grey-1'),
-          2: theme('branding.cool-grey-2'),
-          3: theme('branding.cool-grey-3'),
-          4: theme('branding.cool-grey-4'),
-          5: theme('branding.cool-grey-5'),
-          6: theme('branding.cool-grey-6'),
-          7: theme('branding.cool-grey-7'),
-          8: theme('branding.cool-grey-8'),
-          9: theme('branding.cool-grey-9'),
-          10: theme('branding.cool-grey-10'),
-          11: theme('branding.cool-grey-11'),
-          12: theme('branding.cool-grey-12'),
-          13: theme('branding.cool-grey-13'),
-          14: theme('branding.cool-grey-14'),
+          1: theme('branding.grey-1'),
+          2: theme('branding.grey-2'),
+          3: theme('branding.grey-3'),
+          4: theme('branding.grey-4'),
+          5: theme('branding.grey-5'),
+          6: theme('branding.grey-6'),
+          7: theme('branding.grey-7'),
+          8: theme('branding.grey-8'),
+          9: theme('branding.grey-9'),
+          10: theme('branding.grey-10'),
+          11: theme('branding.grey-11'),
+          12: theme('branding.grey-12'),
+          13: theme('branding.grey-13'),
+          14: theme('branding.grey-14'),
           15: theme('branding.black'),
         },
       }),
